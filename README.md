@@ -46,6 +46,14 @@ git clone https://github.com/thinwalled/cufsm-git external_sources/cufsm-git
 cd external_sources/cufsm-git && git checkout d16e28195d3963ee218be0768e19159b0777fdee
 ```
 
+## Data availability (manuscript citation)
+
+Cite this repository in the manuscript data statement:
+
+> https://github.com/Johnsonlijian/bounded-relation-recovery (release commit `84b3e3f`, 2026-10-06)
+
+A Zenodo archive DOI may be minted on acceptance if the journal requests a DOI-backed deposit.
+
 ## Citation
 
 Use `CITATION.cff`. Paper DOI will be added on acceptance.
