@@ -1,0 +1,36 @@
+{
+  "frozen_effective_modulus_mpa": 217400.0,
+  "sentinel_rows": [
+    {
+      "table": "Table 4",
+      "c_over_a": 0.2,
+      "source_stress_mpa": 552.72,
+      "reconstructed_stress_mpa": 552.317117,
+      "E_implied_mpa": 217558.58057174785
+    },
+    {
+      "table": "Table 4",
+      "c_over_a": 0.5,
+      "source_stress_mpa": 393.56,
+      "reconstructed_stress_mpa": 391.608623,
+      "E_implied_mpa": 218483.29933225192
+    },
+    {
+      "table": "Table 8",
+      "c_over_a": 0.2,
+      "source_stress_mpa": 594.77,
+      "reconstructed_stress_mpa": 595.191056,
+      "E_implied_mpa": 217246.2047211946
+    },
+    {
+      "table": "Table 8",
+      "c_over_a": 0.5,
+      "source_stress_mpa": 615.67,
+      "reconstructed_stress_mpa": 615.39579,
+      "E_implied_mpa": 217496.86977871586
+    }
+  ],
+  "implied_modulus_mpa_mean": 217696.23860097755,
+  "implied_modulus_mpa_median": 217527.72517523187,
+  "calibration_note": "The article text does not state the modulus used by its CUFSM batch. The single frozen E_eff is retained for all 630 rows; no row-wise refitting is performed."
+}

@@ -1,0 +1,210 @@
+
+===== PAGE 12 =====
+No punchout With punchout
+Fig. 2. Finite strip model of lipped channel sections
+b
+b
+Fig. 3. Centerline dimensions of lipped channel sections
+4 Critical buckling local stress from FSM
+The critical local buckling mode is identified as the one corresponding to the first local minimum of the
+signature curve when two local minima exist. When no or only one local minimum is found, the critical
+10
+h
+d
+d
+b
+t
+b
+d
+d
+t
+Without punchout With punchout
+h
+d
+h
+r
+h
+r
+
+===== PAGE 13 =====
+distortional buckling mode may be mistaken as the local one. Therefore, a two-step analysis (Li and
+Schafer 2010) is used to correctly identify the critical local buckling mode.
+The critical buckling loads and moments from the finite strip analysis are converted to the critical local
+buckling stresses by Eq. (10) and Eq. (11).
+𝑃
+𝐹 = !"ℓ,() (10)
+!"ℓ,() 𝐴
+where 𝑃 is critical buckling load of the section without hole, and 𝐴 is the gross section area.
+!"ℓ,()
+𝑀
+!"ℓ,()
+𝐹 = (11)
+!"ℓ,() 𝑆
+*
+where 𝑀 is critical buckling moment of the section without hole, and 𝑆 is the gross section modulus
+!"ℓ,() *
+with the extreme fiber under compression.
+For sections with web punchouts
+𝑃
+!"ℓ,)
+𝐹 = (12)
+!"ℓ,) 𝐴
+(
+where 𝑃 is critical buckling load of the section with hole, and 𝐴 is net section area.
+!"ℓ,) (
+𝑀
+!"ℓ,)
+𝐹 = (13)
+!"ℓ,) 𝑆
+*,(
+where 𝑀 is critical buckling moment of the section with hole, and 𝑆 is the net section modulus
+!"ℓ,) *,(
+with the extreme fiber under compression.
+5 Plate buckling coefficients from FSM
+Buckling coefficients 𝑘 are not provided by finite strip analyses. Therefore, conversion is required to
+arrive at the buckling coefficients. By setting the critical bucking stress expression of a plate (Eq. (1))
+equal to the section critical buckling stress 𝐹 from FSM, the corresponding buckling coefficient of
++,-
+that plate can be determined. This approach applies to all plate elements, including web, flange, lip, and
+unstiffened web if punchout exists. The conversion is shown in Eq. (14)-(17).
+𝜋$𝐸 𝑡 $
+𝐹 = 𝑘 1 3 (14)
++,- )12(1−𝜇$) ℎ
+𝜋$𝐸 𝑡 $
+𝐹 = 𝑘 1 3 (15)
++,- .12(1−𝜇$) 𝑏
+𝜋$𝐸 𝑡 $
+𝐹 = 𝑘 1 3 (16)
++,- /12(1−𝜇$) 𝑑
+𝜋$𝐸 𝑡 $
+𝐹 = 𝑘 1 3 (17)
++,- )"12(1−𝜇$) ℎ
+"
+Note that some care must be taken for sections in bending as the 𝐹 must be the critical buckling stress
++,-
+of the compression fiber of the specific plate, which may or may not be at the most extreme fiber of the
+section.
+11
+
+===== PAGE 14 =====
+The buckling coefficients obtained per back-calculation of Eq. (14)-(17) are not traditional isolated plate
+buckling coefficients given for certain idealized boundary conditions, but instead are specific to lipped
+channel section geometries and loading conditions. It is possible to develop accurate analytical equations
+for buckling for these FSM-based buckling coefficients, which can be used to substitute 𝑘 in Eq. (1) so
+that the cross-section critical buckling stress can be conveniently calculated.
+For each loading condition, only one buckling coefficient (e.g., 𝑘 ) needs to be determined and
+)
+supporting equations developed. It is a secondary decision to select which plate is used as a reference
+since an accurate equation can be formulated regardless of the choice. Conceptually, it is easier to develop
+equations for the buckling coefficient of the plate which typically dominates the section local buckling,
+e.g., web element for a lipped channel under pure compression. Therefore, in this study, the development
+of each analytical equation starts with identifying a dominant plate element to focus on, which is done
+qualitatively by observing buckling mode shapes.
+6 Sections without punchouts
+6.1 Pure compression
+For pure compression, the web element is typically the dominant plate. The critical local buckling stress is
+calculated as
+𝜋$𝐸 𝑡 $
+𝐹 = 𝑘 1 3 (18)
+!"ℓ,() )12(1−𝜇$) ℎ
+where 𝑘 is the plate buckling coefficient for the web, and ℎ is the centerline width of the web.
+)
+For a lipped channel section under pure compression, it is found that 𝑘 is most influenced by the
+)
+geometric ratio ℎ/𝑏 (Fig. 4). A polynomial ratio expression is used and fit to the FSM data which is
+obtained by minimizing least-squares error then manually simplified to a condensed and convenient form.
+The equation developed is Eq. (19)
+24𝜂
+)
+𝑘 = 4+ (19)
+) 20+4.4𝜂 +𝜂$
+) )
+where 𝜂 = ℎ/𝑏, and 1.2 ≤ 𝜂 ≤ 22
+) )
+The proposed equation has high prediction accuracy and strong consistency. The mean FSM-to-predicted
+ratio 𝐹 /𝐹 is 1.00 and COV is 0.02. Fig. 5 shows the distribution of the FSM-to-predicted ratio,
++,- 0"1/
+𝐹 /𝐹 . Compared to the results of the element method of AISI S100 (2020) Appendix 2 (as shown
++,- 0"1/
+in Fig. 5) the proposed equation is more accurate and has significantly less scatter.
+12
+
+===== PAGE 15 =====
+Fig. 4. The proposed equation for gross lipped channel sections under pure compression against FSM results
+Fig. 5. Histogram of the prediction accuracy of the proposed equation for gross lipped channel section under
+pure compression
+13
+
+===== PAGE 16 =====
+6.2 Major axis bending
+For a lipped channel section under major axis bending, either the flange or web could be the dominant
+plate. It is decided to develop analytical equations for each case. For simplicity, a section is considered
+flange buckling dominant, when the FSM-determined flange plate buckling coefficient 𝑘 is less than
+.,+,-
+4; otherwise, the section is considered web buckling dominant. For the FSM data, this division approach
+can be approximated by ℎ/𝑏 < 2.57 for flange buckling dominant and ℎ/𝑏 ≥ 2.57 for web buckling
+dominant.
+Two analytical equations are developed, Eq. (20) and (22). It is found that both 𝑘 and 𝑘 are strongly
+. )
+influenced by the ratio ℎ/𝑏 (Fig. 6). The equations are thusly developed with the ratio ℎ/𝑏 as the single
+input parameter.
+When 1 < 𝜂 < 2.57
+)
+𝜋$𝐸 𝑡 $
+𝐹 = 𝑘 1 3 (20)
+!"ℓ,() .12(1−𝜇$) 𝑏
+4.93−3.15𝜂 +0.53𝜂$
+𝑘 = ) ) (21)
+. 1−0.64𝜂 +0.11𝜂$
+) )
+where 𝜂 = ℎ/𝑏
+)
+When 𝜂 ≥ 2.57
+)
+𝜋$𝐸 𝑡 $
+𝐹 = 𝑘 1 3 (22)
+!"ℓ,() )12(1−𝜇$) ℎ
+−4.3𝜂 +6.44𝜂$
+𝑘 = ) ) (23)
+) 1−0.54𝜂 +0.24𝜂$
+) )
+where 𝜂 = ℎ/𝑏, and 1.2 ≤ 𝜂 ≤ 22
+) )
+The proposed equation has excellent prediction accuracy. The mean of the FSM-to-predicted ratio is 1.00
+and COV is 0.03. The histogram of the FSM-to-predicted ratios is shown in Fig. 7. The proposed equation
+outperforms the element method in AISI S100 Appendix 2 in both accuracy and consistency.
+14
+
+===== PAGE 17 =====
+Fig. 6. The proposed equation for gross lipped channel sections under major axis bending against FSM results
+Fig. 7. Histogram of the prediction accuracy of the proposed equation for gross lipped channel section under
+major axis bending
+15
+
+===== PAGE 18 =====
+6.3 Minor axis bending with lip in compression
+For lipped channel sections under minor axis bending with the lip in compression, the dominant plate is
+found to be the flange. The plate buckling coefficient 𝑘 is found to be dependent on both the geometric
+.
+ratio 𝑏/𝑑 and the stress gradient 𝜓 (Fig. 8), where 𝜓 = |𝑓 /𝑓 | (see AISI S100 for definitions of 𝑓 and
+$ & &
+𝑓 ). 𝑘 increases with higher 𝑏/𝑑 until reaching a plateau at 𝑏/𝑑 around 5; at the same 𝑏/𝑑 values, higher
+$ .
+𝜓 leads to larger 𝑘 .
+.
+Fig. 8. Dependency of the buckling coefficient of minor-axis bending with lip in compression on geometric
+ratio and stress gradient
+It is decided to explicitly include both the effect of 𝑘 and 𝜓 in the proposed analytical equation.
+.
+Specifically, the equation is split into two parts, 𝑓(⋅) and 𝑔(⋅), as seen in Eq. (24) . The first part
+considers the contribution of the stress gradient 𝜓, and the second part considers the contribution of the
+geometric ratio 𝑏/𝑑.
+𝑘 = 𝑓(𝜓,…)+𝑔(𝑏/𝑑,…) (24)
+.
+The part 𝑓(⋅) is first determined. Fig. 9 shows the relationship between the buckling coefficient 𝑘 and
+.
+stress gradient 𝜓 at various 𝑏/𝑑 ratios. Several conclusions can be drawn from Fig. 9. First, at a given
+𝑏/𝑑, ratio, the relationship between buckling coefficient and stress gradient is approximately linear.
+Second, the magnitude of the stress gradient effect is also dependent on the ratio of 𝑏/𝑑. Based on these
+findings, 𝑓(⋅) can be established as 𝜉(𝑏/𝑑)𝜓, where 𝜉 is a stress gradient multiplier dependent on 𝑏/𝑑.
+16

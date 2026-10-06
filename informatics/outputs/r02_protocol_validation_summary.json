@@ -1,0 +1,18 @@
+{
+  "positive_control_action": "allow_bounded_query",
+  "failure_cases": 15,
+  "failure_gate_pass_count": 16,
+  "failure_gate_pass_fraction": 1.0,
+  "target_winner_perturbation_fraction": 1.0,
+  "perturbation_trials": 200,
+  "evidence_manifest_rows": 678,
+  "leave_source_winners": [
+    "+0.292 -0.339 x^2 +1.060 x",
+    "+0.292 -0.339 x^2 +1.060 x"
+  ],
+  "positive_plus_increasing_candidate_count": 20,
+  "positive_only_candidate_count": 22,
+  "public_solver_source": "https://github.com/thinwalled/cufsm-git",
+  "public_solver_license": "MIT (repository LICENSE; verify before redistribution)",
+  "evidence_boundary": "protocol stress tests and public-source provenance; not a rerun of the Zhang et al. models"
+}

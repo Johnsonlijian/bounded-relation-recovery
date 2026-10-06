@@ -1,0 +1,260 @@
+{
+  "ontology_version": "1.2",
+  "scope": "knowledge-constrained recovery protocol demonstrated on an axial local-buckling relation for unequal-limb lipped-angle sections",
+  "provenance": {
+    "source_record": "Zhang et al. (2022), Buildings 12, 712",
+    "source_doi": "10.3390/buildings12060712",
+    "source_table_transcription": "data/source_table_transcription.csv",
+    "held_out_table_transcription": "data/full_cufsm_cells.csv",
+    "source_cufsm_models_available": false,
+    "independent_cufsm_rerun": "not_available",
+    "independent_source_cufsm_rerun": "not_available",
+    "source_model_reconstruction": {
+      "rows": 630,
+      "gate": "pass_with_metadata_boundary",
+      "overall_rmse_pct": 0.5315689291726593,
+      "q95_abs_error_pct": 1.3196886254999995,
+      "max_abs_error_pct": 2.43139066,
+      "effective_modulus_mpa": 217400.0,
+      "mesh_target_mm": 4.0,
+      "length_grid_points": 32,
+      "scope": "published Table 4/Table 8 geometry-to-response recreation; native model files unavailable"
+    },
+    "independent_ksce_spectrum_transfer": {
+      "rows": 24,
+      "gate": "pass_bounded_spectrum_screen",
+      "rmse_pct": 0.7197162849917158,
+      "q95_abs_error_pct": 1.5421971964999999,
+      "max_abs_error_pct": 1.6200477,
+      "scope": "published KSCE 2023 Table 2 nearest-spectrum transfer; source mode selector unavailable"
+    },
+    "public_solver_transfer": {
+      "repository": "https://github.com/thinwalled/cufsm-git",
+      "license": "MIT",
+      "example": "examples/2006_dsm_design_guide/files_and_scripts/cnolip_P.mat",
+      "cells": 500,
+      "gate": "pass",
+      "scope": "solver and provenance path only; not a rerun of the Zhang et al. models"
+    },
+    "external_relation_transfer_card": {
+      "source": "AISI RP23-01 (2023), Eq. (19), printed page 12",
+      "url": "https://www.buildusingsteel.org/wp-content/uploads/2023/07/AISI-RP23-01-Analytical-Equations-for-Critical-Local-Buckling-Stress-of-Lipped-Channels-second-printing.pdf",
+      "relation": "k_w = 4 + 24 eta/(20 + 4.4 eta + eta^2), eta=h/b",
+      "domain": [
+        1.2,
+        22.0
+      ],
+      "cells": 7,
+      "bounded_positive_gate": "pass",
+      "global_increasing_predicate": "not satisfied; relation-specific predicate map retained",
+      "scope": "source equation card only; no rerun of the report's FSM sections"
+    },
+    "human_engineer_review": "open",
+    "submission_state": "LOCAL_ONLY / NOT_SUBMITTED"
+  },
+  "evidence_classes": {
+    "case_evidence": "Zhang et al. equations and public rounded tables",
+    "method_evidence": "known-form positive control; 15 injected cases; 200 digit perturbation trials; leave-source and predicate-ablation checks",
+    "transfer_evidence": "public solver example; AISI relation card; bounded Zhang source-model reconstruction; independent KSCE spectrum-transfer screen"
+  },
+  "method_controls": {
+    "positive_control": "pass",
+    "failure_or_coverage_cases": 15,
+    "failure_gate_pass_fraction": 1.0,
+    "digit_perturbation_trials": 200,
+    "target_winner_perturbation_fraction": 1.0,
+    "predicate_ablation": "monotonicity removal increases mechanically admissible candidates from 20 to 22"
+  },
+  "nodes": [
+    {
+      "id": "Geometry",
+      "kind": "engineering_object",
+      "attributes": [
+        "a",
+        "b",
+        "c",
+        "t"
+      ]
+    },
+    {
+      "id": "LimbRatio",
+      "kind": "dimensionless_state",
+      "definition": "x=a/b",
+      "domain": [
+        1.1,
+        1.5
+      ]
+    },
+    {
+      "id": "PositiveScale",
+      "kind": "mechanics_factor",
+      "definition": "A=k_l pi^2 E/[12(1-nu^2)] (t/a)^2",
+      "sign": ">0"
+    },
+    {
+      "id": "ShapeFactor",
+      "kind": "candidate_relation",
+      "definition": "q(x)=c0+c2*x^2+c1*x"
+    },
+    {
+      "id": "CriticalStress",
+      "kind": "response",
+      "definition": "sigma_cr=A q(x)",
+      "unit": "MPa"
+    },
+    {
+      "id": "RoundedCell",
+      "kind": "evidence",
+      "definition": "reported value +/- 0.005 MPa"
+    },
+    {
+      "id": "CUFSMCell",
+      "kind": "held_out_evidence",
+      "definition": "public finite-strip stress"
+    },
+    {
+      "id": "MethodControl",
+      "kind": "protocol_evidence",
+      "definition": "positive control, injected failures and perturbation replay"
+    },
+    {
+      "id": "TransferEvidence",
+      "kind": "provenance_evidence",
+      "definition": "independently regenerated public solver example"
+    },
+    {
+      "id": "SourceModelReconstruction",
+      "kind": "bounded_model_evidence",
+      "definition": "published geometry-to-response recreation with frozen effective modulus"
+    },
+    {
+      "id": "IndependentSpectrumTransfer",
+      "kind": "transfer_evidence",
+      "definition": "second published source and nearest-spectrum predicate"
+    },
+    {
+      "id": "ExternalRelationCard",
+      "kind": "transfer_evidence",
+      "definition": "source-anchored relation and relation-specific predicate map"
+    },
+    {
+      "id": "DesignAction",
+      "kind": "engineering_task",
+      "states": [
+        "reject_nonexecutable",
+        "retain_bounded_claim",
+        "allow_bounded_query",
+        "allow_operational_use"
+      ]
+    }
+  ],
+  "relations": [
+    [
+      "Geometry",
+      "defines",
+      "LimbRatio"
+    ],
+    [
+      "Geometry",
+      "sets",
+      "PositiveScale"
+    ],
+    [
+      "LimbRatio",
+      "enters",
+      "ShapeFactor"
+    ],
+    [
+      "PositiveScale",
+      "multiplies",
+      "ShapeFactor"
+    ],
+    [
+      "ShapeFactor",
+      "produces",
+      "CriticalStress"
+    ],
+    [
+      "RoundedCell",
+      "constrains",
+      "PositiveScale"
+    ],
+    [
+      "CUFSMCell",
+      "tests",
+      "ShapeFactor"
+    ],
+    [
+      "MethodControl",
+      "tests",
+      "DesignAction"
+    ],
+    [
+      "TransferEvidence",
+      "checks",
+      "CUFSMCell"
+    ],
+    [
+      "ExternalRelationCard",
+      "tests",
+      "DesignAction"
+    ],
+    [
+      "SourceModelReconstruction",
+      "checks",
+      "CUFSMCell"
+    ],
+    [
+      "IndependentSpectrumTransfer",
+      "tests",
+      "DesignAction"
+    ],
+    [
+      "CriticalStress",
+      "supports",
+      "DesignAction"
+    ]
+  ],
+  "rules": [
+    {
+      "id": "R1",
+      "if": "PositiveScale > 0 and ShapeFactor <= 0",
+      "then": "reject_nonexecutable"
+    },
+    {
+      "id": "R2",
+      "if": "ShapeFactor(x)>0 on [1.1,1.5]",
+      "then": "retain_positive_route"
+    },
+    {
+      "id": "R3",
+      "if": "d ShapeFactor/dx >= 0 on [1.1,1.5]",
+      "then": "retain_increasing_route"
+    },
+    {
+      "id": "R4",
+      "if": "intersection of all scale intervals is nonempty",
+      "then": "retain_bounded_claim"
+    },
+    {
+      "id": "R5",
+      "if": "public held-out table replay is complete and all reported residuals are finite",
+      "then": "allow_bounded_query; no universal error threshold implied"
+    },
+    {
+      "id": "R6",
+      "if": "independent CUFSM rerun and human engineer review both pass",
+      "then": "allow_operational_use"
+    },
+    {
+      "id": "R7",
+      "if": "R6 is open",
+      "then": "retain_bounded_claim and keep human gate open"
+    },
+    {
+      "id": "R8",
+      "if": "independent source spectrum screen passes under a declared predicate",
+      "then": "retain_bounded_transfer_evidence; do not promote to universal recovery"
+    }
+  ]
+}

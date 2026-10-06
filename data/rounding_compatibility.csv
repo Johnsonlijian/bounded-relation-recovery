@@ -1,0 +1,9 @@
+﻿table,a_over_t,candidate,all_q_positive,least_squares_positive_scale,rounding_scale_lower,rounding_scale_upper,rounding_scale_interval_width,all_rows_compatible_to_0p01_mpa,max_abs_error_mpa_at_ls_scale,max_abs_relative_error_pct_at_ls_scale
+Table 5,70.0,printed,False,0.0,nan,nan,nan,False,183.27,100.0
+Table 5,70.0,coefficient_swap_reconstruction,True,163.74243801486227,163.73911101183828,163.74628988079897,0.007178868960693308,True,0.0012762518653914867,0.0006963779480501374
+Table 5,110.0,printed,False,0.0,nan,nan,nan,False,74.22,100.0
+Table 5,110.0,coefficient_swap_reconstruction,True,66.31143801382028,66.30779539870449,66.31450358366497,0.006708184960487529,True,0.0017878652610363588,0.002573208493143867
+Table 9,70.0,printed,False,0.0,nan,nan,nan,False,212.25,100.0
+Table 9,70.0,coefficient_swap_reconstruction,True,189.63598376713026,189.63348494654042,189.63838863916163,0.004903692621212485,True,0.002480151036792222,0.0012481887452401722
+Table 9,110.0,printed,False,0.0,nan,nan,nan,False,85.95,100.0
+Table 9,110.0,coefficient_swap_reconstruction,True,76.79462377607254,76.79350263883718,76.7969622515077,0.003459612670511092,True,0.0038252611934126435,0.004753648805036217

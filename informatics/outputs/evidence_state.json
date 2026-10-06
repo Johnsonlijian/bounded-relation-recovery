@@ -1,0 +1,20 @@
+{
+  "project": "AEI_KNOWLEDGE_ENGINEERING_REBUILD_2026-09-26",
+  "revision_date": "2026-10-05",
+  "state": "LOCAL_ONLY / NOT_SUBMITTED",
+  "primary_claim": "A knowledge-constrained recovery protocol binds typed predicates, finite-precision evidence, provenance and bounded actions; the lipped-angle demonstration recovers one positive increasing shape within the declared permutation/sign class.",
+  "evidence_classes": {
+    "transcribed_public_equations_and_tables": "available",
+    "deterministic_replay_from_transcriptions": "available",
+    "independent_cufsm_model_rerun": "bounded_reconstruction_available; native files not available",
+    "independent_source_cufsm_model_rerun": "not_available",
+    "public_solver_transfer_evidence": "available; separately sourced MIT-licensed CUFSM example; 500 cells; transfer gate pass",
+    "source_model_reconstruction_evidence": "available; 630 published cells; RMSE 0.532%; q95 1.320%; max 2.431%; metadata boundary",
+    "independent_ksce_spectrum_transfer_evidence": "available; 24 published rows; nearest-spectrum screen pass; mode metadata boundary",
+    "external_relation_transfer_evidence": "available; AISI RP23-01 Eq. (19) card; 7 cells; positive-bounded gate pass; source FSM not rerun",
+    "independent_engineer_blind_review": "open",
+    "operational_design_validation": "not_available"
+  },
+  "action_boundary": "allow_bounded_query only; operational use remains gated by R6",
+  "excluded_identity": "IFC compliance-check manuscript and its submission history are outside this project"
+}

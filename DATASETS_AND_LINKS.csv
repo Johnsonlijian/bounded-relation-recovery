@@ -1,0 +1,6 @@
+name,source_url_or_doi,license,local_path,notes
+Zhang et al. 2022 primary tables,https://doi.org/10.3390/buildings12060712,CC-BY 4.0 (MDPI),data/source_table_transcription.csv,Transcribed rounded equation-table cells; not native CUFSM models
+Zhang et al. 2022 replay tables,https://doi.org/10.3390/buildings12060712,CC-BY 4.0 (MDPI),data/full_cufsm_cells.csv,630 transcribed public cells
+MIT CUFSM repository,https://github.com/thinwalled/cufsm-git,MIT,external_sources/cufsm-git (clone locally),Pinned commit d16e281; example cnolip_P.mat not redistributed
+AISI RP23-01 report,https://www.buildusingsteel.org/wp-content/uploads/2023/07/AISI-RP23-01-Analytical-Equations-for-Critical-Local-Buckling-Stress-of-Lipped-Channels-second-printing.pdf,Publisher PDF (not redistributed),external_sources/rp23001_rebuild,Local card and derived CSVs only
+KSCE 2023 complex-edge table,publisher source cited in external_sources/zhang_reconstruction/ksce2023_table2_provenance.json,Verify publisher terms,external_sources/zhang_reconstruction/ksce2023_table2_distortional_cases.csv,24-row transcribed screen input

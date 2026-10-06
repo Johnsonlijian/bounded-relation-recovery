@@ -1,0 +1,36 @@
+{
+  "repository": "https://github.com/thinwalled/cufsm-git",
+  "commit": "d16e28195d3963ee218be0768e19159b0777fdee",
+  "files": [
+    {
+      "path": "external_sources\\cufsm-git\\LICENSE",
+      "exists": true,
+      "bytes": 1097,
+      "sha256": "fb0599de47d79e9975bdc9a77610655e080ba03b272cc7dde3806e159220bc0a"
+    },
+    {
+      "path": "external_sources\\cufsm-git\\README.md",
+      "exists": true,
+      "bytes": 2336,
+      "sha256": "6e6a273e965e1dbde542673a1e461a21602791c1c30d3e059b95cbf2be3d5313"
+    },
+    {
+      "path": "external_sources\\cufsm-git\\examples\\batchcufsm5results.mat",
+      "exists": true,
+      "bytes": 482661,
+      "sha256": "b5a1023e14915d6f3372ec07b3c4f52fac32a5c80a7c21a86ea84905531d42ef"
+    },
+    {
+      "path": "external_sources\\cufsm-git\\examples\\2006_dsm_design_guide\\files_and_scripts\\cnolip_P.mat",
+      "exists": true,
+      "bytes": 347608,
+      "sha256": "661e0b4e4b123e5bd33825dd5b5c40be26d4ff19f143829c3cfe0178cf726c7e"
+    },
+    {
+      "path": "external_sources\\cufsm-git\\examples\\2006_dsm_design_guide\\files_and_scripts\\cnolip_P_post.m",
+      "exists": true,
+      "bytes": 2536,
+      "sha256": "ca3db860d2c33a7669d55e4aa738eba80727bfd18f36d1b43ddedc8a0fd58a66"
+    }
+  ]
+}

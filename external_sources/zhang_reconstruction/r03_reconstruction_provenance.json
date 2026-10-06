@@ -1,0 +1,60 @@
+{
+  "source_article": "Zhang et al. (2022), Buildings 12, 712",
+  "doi": "10.3390/buildings12060712",
+  "publisher_pdf_url": "https://mdpi-res.com/d_attachment/buildings/buildings-12-00712/article_deploy/buildings-12-00712.pdf",
+  "source_tables": [
+    "Table 4",
+    "Table 8"
+  ],
+  "rows": 630,
+  "geometry_scope": "simple and complex lipped unequal-limb angle local-buckling cells; t=2 mm; Table 8 d/c=0.5",
+  "solver": "MIT-licensed CUFSM source repository with the local headless stripmain wrapper",
+  "solver_repository": "https://github.com/thinwalled/cufsm-git",
+  "model_files_from_authors_available": false,
+  "reconstruction_contract": {
+    "elastic_modulus_mpa": 217400.0,
+    "poisson_ratio": 0.3,
+    "thickness_mm": 2.0,
+    "mesh_target_mm": 4.0,
+    "length_grid_points": 32,
+    "length_grid_factor": [
+      0.3,
+      1.6
+    ],
+    "mode_selection": "minimum of first positive CUFSM eigenvalue over local-wavelength grid; quadratic interpolation in log wavelength",
+    "relative_tolerance_pct": 5.0,
+    "sentinel_rows_frozen_before_holdout": [
+      {
+        "table": "Table 4",
+        "a_over_t": 40.0,
+        "a_over_b": 1.1,
+        "c_over_a": 0.2
+      },
+      {
+        "table": "Table 4",
+        "a_over_t": 40.0,
+        "a_over_b": 1.1,
+        "c_over_a": 0.5
+      },
+      {
+        "table": "Table 8",
+        "a_over_t": 40.0,
+        "a_over_b": 1.1,
+        "c_over_a": 0.2
+      },
+      {
+        "table": "Table 8",
+        "a_over_t": 40.0,
+        "a_over_b": 1.1,
+        "c_over_a": 0.5
+      }
+    ]
+  },
+  "boundary": "E_effective is a metadata-recovery parameter because the article text does not state the batch material modulus; no native author model files are claimed.",
+  "publisher_assets": {
+    "pdf_local": "external_sources/zhang2022_buildings_vor.pdf",
+    "pdf_sha256": "b1f585c7dc053b3459c1e13cbfe78cd06cced7f820e1777ae1dfce8b1d5c1320",
+    "xml_local": "external_sources/zhang2022_buildings.xml",
+    "xml_sha256": "2184a70338f111ffc30a06c06c4469773e0d6442f619acee9172ed3e63c9134a"
+  }
+}

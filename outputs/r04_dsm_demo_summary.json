@@ -1,0 +1,32 @@
+{
+  "round": "R04_W4",
+  "module": "DSM local-buckling input module (AISI S100 App.1 curve)",
+  "cross_section": {
+    "family": "simple-lipped unequal-limb angle (Zhang et al. 2022, Table 4)",
+    "a_over_t": 100.0,
+    "c_over_a": 0.2,
+    "t_mm": 2.0,
+    "a_mm": 200.0,
+    "lip_mm": 40.0
+  },
+  "demo_material": {
+    "fy_mpa": 350.0,
+    "note": "representative demo value, not the source paper's material"
+  },
+  "open_modules": [
+    "global (P_ne) channel not rebuilt; phi_l cap by P_ne is not applied",
+    "distortional channel not rebuilt",
+    "corner radii ignored in the centreline area"
+  ],
+  "key_numbers": {
+    "phi_l_recovered_range": [
+      0.9091998165598602,
+      0.9111846729664206
+    ],
+    "max_recovered_vs_table_phi_dev_pct": 0.013398138470588222,
+    "printed_expression_executable_cells": 0,
+    "printed_expression": "rejected before DSM by rule R1 (negative, decreasing)",
+    "abs_misuse_unconservative_max_factor": 1.0153511677006333
+  },
+  "conclusion": "With the recovered relation the local-buckling DSM module executes across the declared domain and reproduces the public-table phi_l path within the replay accuracy. With the printed expression the module is non-executable (negative critical stress); silently using its absolute value yields materially unconservative local strengths. The demo is bounded to the local module; P_ne and distortional channels remain open."
+}

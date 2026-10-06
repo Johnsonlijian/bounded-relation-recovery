@@ -1,0 +1,20 @@
+{
+  "source_repository": "https://github.com/thinwalled/cufsm-git",
+  "source_license": "MIT (repository LICENSE)",
+  "source_input": "external_sources\\cufsm-git\\examples\\2006_dsm_design_guide\\files_and_scripts\\cnolip_P.mat",
+  "rerun_output": "external_sources\\cufsm_public_rerun\\cnolip_P_rerun.mat",
+  "source_input_sha256": "661e0b4e4b123e5bd33825dd5b5c40be26d4ff19f143829c3cfe0178cf726c7e",
+  "rerun_output_sha256": "33973ccb89786fe28215d55ba1f509902439592976f77aacf83fd6a647587503",
+  "length_count": 50,
+  "case_count": 10,
+  "cell_count": 500,
+  "max_absolute_difference": 0.00014363357331603765,
+  "max_relative_difference_fraction": 0.49778776395674773,
+  "q95_relative_difference_fraction": 9.411681450634924e-05,
+  "rmse": 1.1463635985630274e-05,
+  "gate_absolute_tolerance": 0.001,
+  "gate_relative_tolerance_fraction_q95": 0.01,
+  "gate": "pass",
+  "evidence_class": "independent_public_CUFSM_example_rerun",
+  "boundary": "does not rerun the Zhang et al. lipped-angle source models and does not validate the recovered angle relation"
+}

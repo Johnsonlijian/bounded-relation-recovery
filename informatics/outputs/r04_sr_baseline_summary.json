@@ -1,0 +1,137 @@
+{
+  "round": "R04_W3",
+  "seed": 20261005,
+  "half_unit_mpa": 0.005,
+  "protocol_reference": {
+    "candidate": "0.292 - 0.339 x^2 + 1.060 x",
+    "class": "48 printed-magnitude permutations/signs",
+    "interval_feasible": true,
+    "replay_rmse_mpa": 0.0016688931843873666,
+    "min_required_half_width_mpa": 0.0031277398872191498,
+    "auditable": true,
+    "unique_in_class": true,
+    "stable_under_200_last_digit_trials": true
+  },
+  "joint_ls_quadratic": {
+    "coefficients": [
+      0.26758246615959475,
+      0.9725559168575801,
+      -0.3110556479967792
+    ],
+    "rmse_mpa": 0.0015840742277146863,
+    "interval_feasible": true,
+    "min_required_half_width_mpa": 0.0032123579939309366
+  },
+  "form_enumeration_bic": [
+    {
+      "form": "const",
+      "rmse": 3.4989375530294917,
+      "k": 5,
+      "bic": 65.07703601319184,
+      "positive": true,
+      "monotone": true
+    },
+    {
+      "form": "linear",
+      "rmse": 0.7670111392107052,
+      "k": 6,
+      "bic": 7.364235456145559,
+      "positive": true,
+      "monotone": true
+    },
+    {
+      "form": "quadratic_only",
+      "rmse": 0.9214150033216091,
+      "k": 6,
+      "bic": 14.70060390398912,
+      "positive": true,
+      "monotone": true
+    },
+    {
+      "form": "quadratic",
+      "rmse": 0.0015840742277146863,
+      "k": 7,
+      "bic": -236.94007911538824,
+      "positive": true,
+      "monotone": true
+    },
+    {
+      "form": "cubic",
+      "rmse": 0.001504395789475342,
+      "k": 8,
+      "bic": -236.00869901870385,
+      "positive": true,
+      "monotone": true
+    },
+    {
+      "form": "inverse",
+      "rmse": 0.059494310395938596,
+      "k": 7,
+      "bic": -91.90485786914012,
+      "positive": true,
+      "monotone": true
+    },
+    {
+      "form": "sqrt",
+      "rmse": 0.6887109277611283,
+      "k": 6,
+      "bic": 3.057047668219207,
+      "positive": true,
+      "monotone": true
+    }
+  ],
+  "bic_best_form": {
+    "form": "quadratic",
+    "rmse": 0.0015840742277146863,
+    "k": 7,
+    "bic": -236.94007911538824,
+    "positive": true,
+    "monotone": true
+  },
+  "admissible_set_continuum": {
+    "convex_segment_all_admissible": true,
+    "segment_alphas": [
+      0.0,
+      0.05,
+      0.1,
+      0.15000000000000002,
+      0.2,
+      0.25,
+      0.30000000000000004,
+      0.35000000000000003,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6000000000000001,
+      0.65,
+      0.7000000000000001,
+      0.75,
+      0.8,
+      0.8500000000000001,
+      0.9,
+      0.9500000000000001,
+      1.0
+    ],
+    "neighbourhood_trials": 2000,
+    "neighbourhood_admissible": 29,
+    "neighbourhood_fraction": 0.0145,
+    "quadratic_coefficient_span": 0.0019752508511748923
+  },
+  "bootstrap_coefficient_ci": {
+    "c0": [
+      0.2666963273178552,
+      0.2683297019936132
+    ],
+    "c1": [
+      0.9714005192521893,
+      0.9739125983948329
+    ],
+    "c2": [
+      -0.311577323204404,
+      -0.31060638030142906
+    ]
+  },
+  "conclusion": "Unconstrained fitting returns a continuum of interval-admissible shapes with arbitrary real coefficients; it cannot produce an auditable recovery claim even when its RMSE is smaller. The protocol's uniqueness is supplied by the declared printed-magnitude candidate class plus mechanics predicates, not by fit quality. This is a method-level comparison on the same 20 rounded cells; it does not estimate error prevalence in the literature.",
+  "boundary": "Baseline fits use only the 20 primary rounded cells. No claim is made that symbolic-regression tool outputs in general behave exactly like this enumeration; the enumeration is a controlled stand-in for structure-blind fitting."
+}

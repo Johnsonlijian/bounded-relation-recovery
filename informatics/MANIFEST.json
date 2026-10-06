@@ -1,0 +1,73 @@
+{
+  "package": "INFORMATICS_ARTEFACT",
+  "purpose": "Submission-facing informatics deliverable for Advanced Engineering Informatics",
+  "submission_state": "LOCAL_ONLY / NOT_SUBMITTED",
+  "ontology_version": "1.2",
+  "files": [
+    {
+      "path": "knowledge_graph.json",
+      "sha256": "b925e326ee0ea7774f4632edbb9c8b20697d3163fc91f61339b91a70da085c72",
+      "bytes": 7639
+    },
+    {
+      "path": "outputs/knowledge_trace.csv",
+      "sha256": "ce1ce9e1de3491603b5c1f001ad459ba70b1806a8be73877cefc35ab62e5982b",
+      "bytes": 1701
+    },
+    {
+      "path": "outputs/design_query_examples.csv",
+      "sha256": "13bb53bab4517a518d675dcf830e8b307f41338a60afd4c9e76f0c6ece2b6daf",
+      "bytes": 1063
+    },
+    {
+      "path": "outputs/evidence_state.json",
+      "sha256": "2f5b9e8577135b2447e11ab93876387e018f4f540d8b933206eaaa162801f713",
+      "bytes": 1571
+    },
+    {
+      "path": "outputs/result_summary.json",
+      "sha256": "54f28f3c7686c0b1f9adb3dc6258883115d59173a7182c8453934aeefd049c63",
+      "bytes": 1814
+    },
+    {
+      "path": "outputs/r02_protocol_validation_summary.json",
+      "sha256": "4b6afa10182ff553a555f849d21100e9a44dc9f4bfbf85f518ca36ae75e2ed06",
+      "bytes": 733
+    },
+    {
+      "path": "outputs/r04_sr_baseline_summary.json",
+      "sha256": "751fa7084cf91a7b1fe2a28b6c9fdb0941f33a41b88039cd3e066ebab477fda3",
+      "bytes": 3782
+    },
+    {
+      "path": "outputs/r04_dsm_demo_summary.json",
+      "sha256": "25b4892042995cc0ccf70a8834599d42f307263e4539535261c59485496794ad",
+      "bytes": 1446
+    },
+    {
+      "path": "src/brr/schema.py",
+      "sha256": "878970050d0a083b5ae39207d47f1c8041077432a73c32b42f077967afddc7a1",
+      "bytes": 2607
+    },
+    {
+      "path": "src/brr/actions.py",
+      "sha256": "327e0ad967f111e6f93fb6ef8fac1a0538599b3c152804b6f4de6db146fe5932",
+      "bytes": 1875
+    },
+    {
+      "path": "README.md",
+      "sha256": "dabd5266cc0a70586852370e0dafded4c87857563f93f091e7571fe1699f232f",
+      "bytes": 2889
+    },
+    {
+      "path": "REPRODUCIBLE_RUNBOOK.md",
+      "sha256": "84c44045507eb1cc08d0ee2ab17692fe414de503b4c7ea0d7320d9e85fa54389",
+      "bytes": 2815
+    },
+    {
+      "path": "ACTION_TRACE_GUIDE.md",
+      "sha256": "210720eb8b4dc8a0dd0ecba83ca504072c3db2b8cb3f89bdd421addc277bdfc2",
+      "bytes": 3103
+    }
+  ]
+}

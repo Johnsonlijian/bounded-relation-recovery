@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Bounded relation recovery for legacy engineering knowledge"
+version: 0.1.0
+date-released: 2026-10-06
+authors:
+  - family-names: Ren
+    given-names: Lijian
+    affiliation: Inner Mongolia University of Technology
+    orcid: https://orcid.org/0000-0003-1629-4368
+repository-code: https://github.com/Johnsonlijian/bounded-relation-recovery
+license: MIT
+keywords:
+  - engineering informatics
+  - knowledge representation
+  - interval analysis
+  - reproducibility

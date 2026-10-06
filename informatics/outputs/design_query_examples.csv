@@ -1,0 +1,7 @@
+a_over_t,a_over_b,printed_shape,identified_shape,identified_derivative,printed_action,identified_action,operational_gate
+70.0,1.1,-0.6177000000000001,1.0478100000000001,0.3141999999999999,reject_nonexecutable,allow_bounded_query,OPEN: independent CUFSM rerun + human engineer review
+70.0,1.3,-1.0587000000000002,1.09709,0.17859999999999998,reject_nonexecutable,allow_bounded_query,OPEN: independent CUFSM rerun + human engineer review
+70.0,1.5,-1.5845000000000002,1.11925,0.04299999999999993,reject_nonexecutable,allow_bounded_query,OPEN: independent CUFSM rerun + human engineer review
+110.0,1.1,-0.6177000000000001,1.0478100000000001,0.3141999999999999,reject_nonexecutable,allow_bounded_query,OPEN: independent CUFSM rerun + human engineer review
+110.0,1.3,-1.0587000000000002,1.09709,0.17859999999999998,reject_nonexecutable,allow_bounded_query,OPEN: independent CUFSM rerun + human engineer review
+110.0,1.5,-1.5845000000000002,1.11925,0.04299999999999993,reject_nonexecutable,allow_bounded_query,OPEN: independent CUFSM rerun + human engineer review

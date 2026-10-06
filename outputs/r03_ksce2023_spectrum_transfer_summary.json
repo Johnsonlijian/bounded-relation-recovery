@@ -1,0 +1,13 @@
+{
+  "source_rows": 24,
+  "reconstructed_rows": 24,
+  "unique_case_ids": 24,
+  "screen_tolerance_pct": 10.0,
+  "rmse_pct": 0.7197162849917158,
+  "q95_abs_error_pct": 1.5421971964999999,
+  "max_abs_error_pct": 1.6200477,
+  "within_tolerance_fraction": 1.0,
+  "gate": "pass",
+  "evidence_class": "independent_KSCE_2023_source_spectrum_transfer_screen",
+  "boundary": "published dimensions and rounded sigma_crd values; nearest-spectrum predicate only; native CUFSM/ABAQUS files and source mode-selection metadata unavailable"
+}

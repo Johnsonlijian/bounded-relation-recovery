@@ -1,0 +1,12 @@
+claim,knowledge_rule,evidence,status
+printed route is executable,R1,20 rounded cells + positive scale,rejected
+identified coefficient assignment is compatible,R4,4/4 groups at 0.005 MPa,supported_within_candidate_class
+identified shape is positive and increasing,R2+R3,analytic domain check,supported
+identified shape is compatible with the public held-out tables,R5,630 transcribed cells and 126 groups with finite residual diagnostics; source models unavailable,bounded_replay_support
+protocol action semantics execute on known and injected inputs,method controls,positive control plus 15 predeclared failure or coverage cases,method_evidence_pass
+selected coefficient direction is stable to declared digit perturbations,sensitivity,200 deterministic trials; leave-source and predicate-ablation records,method_evidence_pass
+a public solver/provenance path can be regenerated,transfer gate,500 cells from a separately sourced CUFSM example; max abs 1.44e-4; q95 relative 9.41e-5,transfer_evidence_pass
+a different relation form can use an explicit predicate map,transfer card,AISI RP23-01 Eq. (19); 7 rounded cells; positive-bounded pass; turning point at sqrt(20),transfer_evidence_pass_with_limits
+published source-model geometry and response path were independently recreated,source reconstruction,630 Table 4/Table 8 cells; RMSE 0.532%; q95 1.320%; max 2.431%; E_eff metadata boundary,bounded_reconstruction_pass
+an independent published complex-edge source transfers to the spectrum predicate,R8,24 KSCE Table 2 rows; RMSE 0.720%; q95 1.542%; max 1.620%; 10% screen,bounded_transfer_pass
+CUFSM simulations were independently rerun,scope,native author files not available,not_claimed

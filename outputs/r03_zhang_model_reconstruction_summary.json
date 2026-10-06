@@ -1,0 +1,65 @@
+{
+  "source_rows": 630,
+  "reconstructed_rows": 630,
+  "duplicate_case_ids": 0,
+  "effective_modulus_mpa": 217400.0,
+  "poisson_ratio": 0.3,
+  "thickness_mm": 2.0,
+  "mesh_target_mm": 4.0,
+  "length_grid_points": 32,
+  "relative_tolerance_pct": 5.0,
+  "sentinel_rows": [
+    {
+      "table": "Table 4",
+      "a_over_t": 40.0,
+      "a_over_b": 1.1,
+      "c_over_a": 0.2
+    },
+    {
+      "table": "Table 4",
+      "a_over_t": 40.0,
+      "a_over_b": 1.1,
+      "c_over_a": 0.5
+    },
+    {
+      "table": "Table 8",
+      "a_over_t": 40.0,
+      "a_over_b": 1.1,
+      "c_over_a": 0.2
+    },
+    {
+      "table": "Table 8",
+      "a_over_t": 40.0,
+      "a_over_b": 1.1,
+      "c_over_a": 0.5
+    }
+  ],
+  "overall_rmse_pct": 0.5315689291726593,
+  "overall_q95_abs_error_pct": 1.3196886254999995,
+  "overall_max_abs_error_pct": 2.43139066,
+  "within_tolerance_fraction": 1.0,
+  "gate": "pass",
+  "evidence_class": "bounded_independent_reconstruction_of_published_Zhang_Table4_Table8_cells",
+  "model_file_boundary": "native author CUFSM files unavailable; geometry was independently rebuilt from published ratios and E_effective was frozen from four sentinel rows",
+  "operational_use": "not allowed; human engineer review and source-model metadata confirmation remain open",
+  "by_table": [
+    {
+      "table": "Table 4",
+      "rows": 315,
+      "rmse_pct": 0.7314528415322507,
+      "mean_bias_pct": -0.498706657448127,
+      "q95_abs_error_pct": 1.690630706,
+      "max_abs_error_pct": 2.43139066,
+      "within_5pct_fraction": 1.0
+    },
+    {
+      "table": "Table 8",
+      "rows": 315,
+      "rmse_pct": 0.17351597487819845,
+      "mean_bias_pct": -0.024886587175688892,
+      "q95_abs_error_pct": 0.4114736883000006,
+      "max_abs_error_pct": 1.53008481,
+      "within_5pct_fraction": 1.0
+    }
+  ]
+}

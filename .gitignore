@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.env
+
+# Local clones and third-party binaries
+external_sources/cufsm-git/
+external_sources/**/*.mat
+external_sources/**/*.pdf
+literature/
+
+# Manuscript / submission-only artefacts (not in this public repo)
+manuscript/
+submission/
+rounds/
+logs/
+qa_render/
+FINAL_SUBMISSION_PACKAGE_*/
+public_github/
+
+# LaTeX residue
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.blg
+*.bbl

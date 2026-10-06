@@ -1,0 +1,38 @@
+{
+  "source": "Ding, C. and Schafer, B.W., AISI RP23-01 (2023), Analytical Equations for Critical Local Buckling Stress of Lipped Channels",
+  "public_url": "https://www.cfsei.org/assets/docs/research_report/AISI%20RP23-01%20Analytical%20Equations%20for%20Critical%20Local%20Buckling%20Stress%20of%20Lipped%20Channels.pdf",
+  "audited_object": "gross lipped channel, pure compression, no punchouts",
+  "audited_equation": "k_w = 4 + 24*eta/(20+4.4*eta+eta^2), eta=h/b, 1.2<=eta<=22",
+  "declared_performance": {
+    "mean_fsm_over_predicted": 1.0,
+    "cov": 0.02
+  },
+  "sampling": {
+    "eta_grid": [
+      1.2,
+      2.2,
+      4.472135955,
+      8.0,
+      12.0,
+      16.0,
+      20.0
+    ],
+    "D_over_B_grid": [
+      0.1,
+      0.25,
+      0.4
+    ],
+    "t_mm": 1.0,
+    "domain_rules": "B/H 0.05-0.75, D/B 0.1-0.4, B/t>8, D/t>4 (report Section 5)",
+    "note": "fresh sections generated inside the declared domain; not the report's own library"
+  },
+  "rebuild_contract": {
+    "solver": "MIT-licensed CUFSM source repository (stripmain)",
+    "elastic_modulus_mpa": 203000.0,
+    "poisson_ratio": 0.3,
+    "mesh_target_mm": 3.0,
+    "length_grid": "36 log points over 0.25h..2.0h, quadratic interp",
+    "kw_backcalculation": "k_w = fcrl*12*(1-nu^2)*(H/t)^2/(pi^2*E) (independent of E)",
+    "screen": "per-section |k_fsm/k_eq - 1| <= 10%"
+  }
+}

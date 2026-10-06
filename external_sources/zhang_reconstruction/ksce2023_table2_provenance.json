@@ -1,0 +1,10 @@
+{
+  "source": "Zhang, Feng, Deng and Pang (2023), Numerical Investigation and Design of Cold-formed Steel Angle Columns with Complex Edges under Axial Compression",
+  "doi": "10.1007/s12205-022-0039-z",
+  "source_url": "https://www.researchgate.net/publication/365605032_Numerical_Investigation_and_Design_of_Cold-formed_Steel_Angle_Columns_with_Complex_Edges_under_Axial_Compression",
+  "rows": 24,
+  "source_table": "Table 2",
+  "thickness_mm": 2,
+  "scope": "independent source-card/spectrum transfer case; table transcribed from openly accessible author full text; not a recovery of raw ABAQUS/CUFSM model files",
+  "data_boundary": "only published dimensions and rounded sigma_crd values are used"
+}
