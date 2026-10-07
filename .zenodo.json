@@ -1,6 +1,6 @@
 {
   "title": "Bounded release calculus for published engineering relations: reproducibility package",
-  "description": "Local R10 candidate metadata for a bounded-release calculus. The package binds a candidate engineering relation to typed predicates, finite-precision evidence and provenance, and returns exactly one auditable action: reject, retain a bounded claim, or allow a bounded query. Operational use remains outside the computational closure. This metadata is staged locally and is not an upload or a minted-release receipt.",
+  "description": "Software and derived artefacts for a bounded-release calculus over published engineering relations. A typed contract binds a relation to its declared domain, displayed precision, a finite candidate class and provenance; a fixed reducer returns exactly one computational permission: REJECT_NONEXECUTABLE, RETAIN_BOUNDED_CLAIM or ALLOW_BOUNDED_QUERY. Operational design use lies outside the computational closure and is never emitted. Three heterogeneous contracts exercise the same interface: a lipped-angle relation whose printed expression is rejected while one of 48 printed-magnitude assignments is interval-feasible and whose four groupwise scale intervals are non-empty but share no common value; a lipped-channel relation retained while its mode selector and corner idealisation remain open; and a 445-cell geotechnical table in which two of nine attributed correlations reject on positivity and seven retain bounded claims under the displayed half-unit. Native third-party model files and the source report PDF are not redistributed; every source DOI, URL, hash and redistribution decision is recorded in DATASETS_AND_LINKS.csv. The engineering review in evidence/ is an author self-review, not an independent review.",
   "creators": [
     {
       "name": "Ren, Lijian",
@@ -12,6 +12,7 @@
   "upload_type": "software",
   "access_right": "open",
   "version": "0.3.0",
+  "language": "eng",
   "keywords": [
     "engineering informatics",
     "knowledge representation",
