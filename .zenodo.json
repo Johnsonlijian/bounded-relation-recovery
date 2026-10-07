@@ -1,6 +1,6 @@
 {
-  "title": "Bounded relation recovery for published engineering relations: reproducibility package and reference evaluator",
-  "description": "Reproducibility package for a bounded relation recovery (BRR) protocol. The protocol binds a candidate engineering relation to typed predicates, finite-precision interval evidence and provenance, and returns exactly one auditable action: reject the route, retain a bounded claim, or allow a bounded query. Contents: the action schema and reference evaluator (src/brr, run `python -m brr.evaluate --self-test`), the typed knowledge graph with one run record per relation, the action trace, query examples for both relations, the transcribed public-table inputs, and the derived tables behind every figure. Cold-formed steel supplies the two evidence programmes; the contract itself is domain-independent. The package does not contain the manuscript, third-party model files, or the AISI report.",
+  "title": "Bounded release calculus for published engineering relations: reproducibility package",
+  "description": "Local R10 candidate metadata for a bounded-release calculus. The package binds a candidate engineering relation to typed predicates, finite-precision evidence and provenance, and returns exactly one auditable action: reject, retain a bounded claim, or allow a bounded query. Operational use remains outside the computational closure. This metadata is staged locally and is not an upload or a minted-release receipt.",
   "creators": [
     {
       "name": "Ren, Lijian",
@@ -11,14 +11,15 @@
   "license": "MIT",
   "upload_type": "software",
   "access_right": "open",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "keywords": [
     "engineering informatics",
     "knowledge representation",
     "interval analysis",
     "provenance",
     "reproducibility",
-    "cold-formed steel"
+    "cold-formed steel",
+    "action semantics"
   ],
   "related_identifiers": [
     {

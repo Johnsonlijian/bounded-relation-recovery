@@ -1,0 +1,3 @@
+calibration_table,scored_table,sentinel_rows,scale_factor_relative_to_E_effective,rmse_relative_pct,q95_abs_relative_pct,max_abs_relative_pct,within_5pct_fraction,evidence_class
+Table 4,Table 8,2,1.00215242246882,0.2565743909202122,0.273114798853479,1.3588071222186862,1.0,cross-table transfer within the same published source; not independent validation
+Table 8,Table 4,2,0.9998883150547514,0.7390310302446176,1.7016102461438534,2.4422874947243383,1.0,cross-table transfer within the same published source; not independent validation

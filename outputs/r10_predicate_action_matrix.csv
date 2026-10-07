@@ -1,0 +1,9 @@
+scenario,changed_predicate,result,expected_order
+clean positive control,none,ALLOW_BOUNDED_QUERY,2
+single-gate perturbation,mechanics.positivity = false,REJECT_NONEXECUTABLE,0
+single-gate perturbation,mechanics.finiteness = false,REJECT_NONEXECUTABLE,0
+single-gate perturbation,mechanics.monotonicity = false,RETAIN_BOUNDED_CLAIM,1
+single-gate perturbation,evidence.interval_feasibility = false,RETAIN_BOUNDED_CLAIM,1
+single-gate perturbation,evidence.coverage = false,RETAIN_BOUNDED_CLAIM,1
+single-gate perturbation,provenance.source_verified = false,REJECT_NONEXECUTABLE,0
+single-gate perturbation,provenance.selector_verified = open,RETAIN_BOUNDED_CLAIM,1

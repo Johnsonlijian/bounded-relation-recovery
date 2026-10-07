@@ -1,22 +1,12 @@
 # Action trace guide
 
-The protocol returns one action per relation run. `outputs/knowledge_trace.csv` links each claim to its rule, evidence and status; it is not a pooled accuracy table.
+Each trace row binds a typed source contract to one reducer action. The key
+fields are the source locator, object and response types, declared domain,
+candidate class, displayed half-unit, predicate statuses, selector/provenance
+state, evidence class and final action.
 
-## Action levels
-
-| Level | Name | Trigger |
-|---|---|---|
-| 0 | `REJECT_NONEXECUTABLE` | mechanics or source-provenance predicate fails |
-| 1 | `RETAIN_BOUNDED_CLAIM` | evidence, coverage, selector or direct-response interval remains incomplete |
-| 2 | `ALLOW_BOUNDED_QUERY` | declared predicates pass inside the tested scope |
-| 3 | `ALLOW_OPERATIONAL_USE` | never granted by the computational layer |
-
-`src/brr/actions.py` is the single reducer. `src/brr/evaluate.py` computes typed predicates before calling it.
-
-## Executed cases
-
-- Zhang lipped-angle relation: printed route rejects; one candidate in the 48-member class allows a bounded query within the declared evidence scope.
-- AISI lipped-channel relation: mechanics and rounded-card predicates pass, but selector/corner evidence retains a bounded claim.
-- Uzer geotechnical correlations: 445 cells over the observed `e0` domain; two candidates reject on positivity and seven retain bounded claims because none meets the displayed `0.0005` direct-response interval. The source has no numerical solver selector, so selector verification is recorded as not applicable rather than guessed.
-
-Open operational gates are preserved in every run. No action record is a member-safety decision.
+Predicate status is `1` (passed), `0` (failed) or `BOX` (open/unevaluated).
+The reducer applies blocker priority first: a mechanics or source-verification
+failure rejects; a singleton feasible candidate with closed evidence permits a
+bounded query; all other incomplete, empty or multiply feasible cases remain
+bounded claims. The trace does not authorize member design or operational use.

@@ -1,67 +1,36 @@
-# Reproducible runbook — informatics artefact (R09, 7 October 2026)
-
-## Scope
-
-Regenerates the typed knowledge graph, action trace, query examples, protocol controls, bounded Zhang reconstruction summaries, selector transfer records, the geotechnical direct-response case and vector figures from public table transcriptions and documented source manifests. No original Zhang CUFSM model files or Uzer spreadsheet are included.
+# R10 reproducible runbook
 
 ## Environment
 
-- Python 3.11+
-- NumPy, pandas, Matplotlib, pypdf
-- GNU Octave only for optional CUFSM reconstruction / RP23-01 reruns
-- LaTeX with `elsarticle` for manuscript PDFs
+Python 3.11 or later with NumPy, pandas, Matplotlib and pypdf. GNU Octave is
+optional for the public finite-strip and geometry reconstruction routes.
 
-## Core run (Python)
+## Core regeneration
 
-From the project root:
+Run from the project root:
 
 ```powershell
-python src/analyze_rebuild.py
-python src/r02_protocol_stress_tests.py
-python src/r02_external_relation_transfer.py
-python src/r04_sr_baseline.py
-python src/r04_dsm_demo.py
-python src/r06_action_state_machine.py
-python src/r07_compression_index_case.py
-python src/r06_extend_artefact.py
-python src/r09_augment_geotechnical_graph.py
-python src/r06_package_informatics.py
+python src/r10_super_uplift_evidence.py
 python -m brr.evaluate --self-test
+python src/r06_package_informatics.py
 ```
 
-Expected headline records:
+The expected R10 control record reports three deterministic actions, passing
+single-gate monotone blocking, false global-scale feasibility, two same-source
+cross-table transfer rows and no emitted operational action. These are
+implementation-level properties of the declared reducer.
 
-- angle candidate class: 48; retained relation `+0.292 -0.339 x^2 +1.060 x`; required half-width `0.003127740 MPa`;
-- Zhang public held-out replay: 630 cells; bounded reconstruction RMSE `0.532%` under the frozen modulus contract;
-- geotechnical table: 445 admissible cells, 9 attributed correlations, `2 REJECT_NONEXECUTABLE`, `7 RETAIN_BOUNDED_CLAIM`;
-- action algebra: one reducer in `src/brr/actions.py` for all cases.
+The recovered angle class contains 48 candidates; one candidate is feasible
+at the displayed half-unit. The four groupwise scale intervals are non-empty,
+but their global intersection is empty. The transfer table is a same-source
+consistency control and is not independent validation. The geotechnical case
+contains 445 admissible cells, two positivity rejects and seven bounded
+retains.
 
-## Extended structural evidence (optional Octave)
+## Source and release boundary
 
-```powershell
-python src/r02_cufsm_transfer.py
-python src/r03_zhang_model_reconstruction.py summarize
-python src/r03_ksce_spectrum_transfer.py
-python src/r04_rp23001_rebuild.py
-python src/r05_figures.py
-```
-
-These steps do not close the native-source-model or human-engineering gates.
-
-## LaTeX
-
-```powershell
-cd manuscript
-pdflatex -interaction=nonstopmode main.tex
-bibtex main
-pdflatex -interaction=nonstopmode main.tex
-pdflatex -interaction=nonstopmode main.tex
-pdflatex -interaction=nonstopmode supplement.tex
-bibtex supplement
-pdflatex -interaction=nonstopmode supplement.tex
-pdflatex -interaction=nonstopmode supplement.tex
-```
-
-## Evidence boundary
-
-`LOCAL_ONLY / NOT_SUBMITTED / HUMAN_ENGINEERING_GATE_OPEN`. The public GitHub/Zenodo records preceding this R09 candidate must be refreshed and reviewed before any external upload. The runbook is a regeneration contract, not an editorial receipt or engineering approval.
+All source locators, hashes and redistribution limits remain in the local
+project registry. This artefact does not include active manuscript files,
+credentials or private raw data. `LOCAL_ONLY / NOT_SUBMITTED` remains the
+authoritative state until the author completes live journal, repository and
+independent engineering gates.

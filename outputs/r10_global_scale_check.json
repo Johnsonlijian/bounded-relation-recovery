@@ -1,0 +1,39 @@
+{
+  "displayed_half_unit_mpa": 0.005,
+  "relation": "q(x)=0.292-0.339x^2+1.060x",
+  "groups": [
+    {
+      "group": "Table 5 @ a/t=70",
+      "lower": 163.73911101183828,
+      "upper": 163.74628988079897,
+      "width": 0.007178868960693308,
+      "cells": 5
+    },
+    {
+      "group": "Table 5 @ a/t=110",
+      "lower": 66.30779539870449,
+      "upper": 66.31450358366497,
+      "width": 0.006708184960487529,
+      "cells": 5
+    },
+    {
+      "group": "Table 9 @ a/t=70",
+      "lower": 189.63348494654042,
+      "upper": 189.63838863916163,
+      "width": 0.004903692621212485,
+      "cells": 5
+    },
+    {
+      "group": "Table 9 @ a/t=110",
+      "lower": 76.79350263883718,
+      "upper": 76.7969622515077,
+      "width": 0.003459612670511092,
+      "cells": 5
+    }
+  ],
+  "groupwise_intersection_nonempty": true,
+  "global_lower": 189.63348494654042,
+  "global_upper": 66.31450358366497,
+  "global_intersection_nonempty": false,
+  "interpretation": "A single global scale is infeasible at the displayed half-unit; the groupwise contract is essential."
+}

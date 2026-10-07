@@ -1,0 +1,10 @@
+{
+  "deterministic_action_count": 3,
+  "single_action_for_each_control": true,
+  "monotone_blocking_single_gate_controls": true,
+  "computational_action_maximum": "ALLOW_BOUNDED_QUERY",
+  "operational_use_emitted": false,
+  "global_scale_infeasible": true,
+  "cross_table_transfer_rows": 2,
+  "boundary": "formal reducer properties are implementation-level properties; case transfer is not universal validation"
+}

@@ -1,8 +1,8 @@
-# Reproducible runbook — informatics artefact (R09, 7 October 2026)
+# Reproducible runbook — R10 bounded-release calculus (7 October 2026)
 
 ## Scope
 
-Regenerates the typed knowledge graph, action trace, query examples, protocol controls, bounded Zhang reconstruction summaries, selector transfer records, the geotechnical direct-response case and vector figures from public table transcriptions and documented source manifests. No original Zhang CUFSM model files or Uzer spreadsheet are included.
+Regenerates the typed knowledge graph, action trace, query examples, protocol controls, bounded Zhang reconstruction summaries, selector transfer records, the geotechnical direct-response case and R10 bounded-release controls from public table transcriptions and documented source manifests. No original Zhang CUFSM model files or Uzer spreadsheet are included.
 
 ## Environment
 
@@ -25,6 +25,7 @@ python src/r06_action_state_machine.py
 python src/r07_compression_index_case.py
 python src/r06_extend_artefact.py
 python src/r09_augment_geotechnical_graph.py
+python src/r10_super_uplift_evidence.py
 python src/r06_package_informatics.py
 python -m brr.evaluate --self-test
 ```
@@ -35,6 +36,7 @@ Expected headline records:
 - Zhang public held-out replay: 630 cells; bounded reconstruction RMSE `0.532%` under the frozen modulus contract;
 - geotechnical table: 445 admissible cells, 9 attributed correlations, `2 REJECT_NONEXECUTABLE`, `7 RETAIN_BOUNDED_CLAIM`;
 - action algebra: one reducer in `src/brr/actions.py` for all cases.
+- R10 controls: three deterministic actions, monotone blocking pass, false global-scale feasibility, two same-source transfer rows, and no emitted operational action.
 
 ## Extended structural evidence (optional Octave)
 
@@ -64,4 +66,7 @@ pdflatex -interaction=nonstopmode supplement.tex
 
 ## Evidence boundary
 
-`LOCAL_ONLY / NOT_SUBMITTED / HUMAN_ENGINEERING_GATE_OPEN`. The public GitHub/Zenodo records preceding this R09 candidate must be refreshed and reviewed before any external upload. The runbook is a regeneration contract, not an editorial receipt or engineering approval.
+`LOCAL_ONLY / NOT_SUBMITTED / HUMAN_ENGINEERING_GATE_OPEN`. Any public
+GitHub/Zenodo record preceding this R10 candidate must be refreshed and
+reviewed before external upload. The runbook is a regeneration contract, not
+an editorial receipt or engineering approval.

@@ -1,0 +1,49 @@
+﻿doi,vor_page,table,a_over_t,a_over_b,reported_formula_stress_mpa,transcription_role
+10.3390/buildings12060712,10,Table 5,70.0,1.1,171.57,equation_reconstruction
+10.3390/buildings12060712,10,Table 5,70.0,1.2,176.16,equation_reconstruction
+10.3390/buildings12060712,10,Table 5,70.0,1.3,179.64,equation_reconstruction
+10.3390/buildings12060712,10,Table 5,70.0,1.4,182.01,equation_reconstruction
+10.3390/buildings12060712,10,Table 5,70.0,1.5,183.27,equation_reconstruction
+10.3390/buildings12060712,10,Table 5,110.0,1.1,69.48,equation_reconstruction
+10.3390/buildings12060712,10,Table 5,110.0,1.2,71.34,equation_reconstruction
+10.3390/buildings12060712,10,Table 5,110.0,1.3,72.75,equation_reconstruction
+10.3390/buildings12060712,10,Table 5,110.0,1.4,73.71,equation_reconstruction
+10.3390/buildings12060712,10,Table 5,110.0,1.5,74.22,equation_reconstruction
+10.3390/buildings12060712,14,Table 9,70.0,1.1,198.7,equation_reconstruction
+10.3390/buildings12060712,14,Table 9,70.0,1.2,204.02,equation_reconstruction
+10.3390/buildings12060712,14,Table 9,70.0,1.3,208.05,equation_reconstruction
+10.3390/buildings12060712,14,Table 9,70.0,1.4,210.79,equation_reconstruction
+10.3390/buildings12060712,14,Table 9,70.0,1.5,212.25,equation_reconstruction
+10.3390/buildings12060712,14,Table 9,110.0,1.1,80.47,equation_reconstruction
+10.3390/buildings12060712,14,Table 9,110.0,1.2,82.62,equation_reconstruction
+10.3390/buildings12060712,14,Table 9,110.0,1.3,84.25,equation_reconstruction
+10.3390/buildings12060712,14,Table 9,110.0,1.4,85.36,equation_reconstruction
+10.3390/buildings12060712,14,Table 9,110.0,1.5,85.95,equation_reconstruction
+10.3390/buildings12060712,14,Table 9,,1,,summary_statistic_row; CUFSM stress=205.67; reported formula stress=198.7; displayed_ratio=1.04
+10.3390/buildings12060712,14,Table 9,,2,,summary_statistic_row; CUFSM stress=211.8; reported formula stress=204.02; displayed_ratio=1.04
+10.3390/buildings12060712,14,Table 9,,3,,summary_statistic_row; CUFSM stress=214.79; reported formula stress=208.05; displayed_ratio=1.03
+10.3390/buildings12060712,14,Table 9,,4,,summary_statistic_row; CUFSM stress=216.72; reported formula stress=210.79; displayed_ratio=1.03
+10.3390/buildings12060712,14,Table 9,,5,,summary_statistic_row; CUFSM stress=218.13; reported formula stress=212.25; displayed_ratio=1.03
+10.3390/buildings12060712,14,Table 9,,6,,summary_statistic_row; CUFSM stress=83.46; reported formula stress=80.47; displayed_ratio=1.04
+10.3390/buildings12060712,14,Table 9,,7,,summary_statistic_row; CUFSM stress=85.86; reported formula stress=82.62; displayed_ratio=1.04
+10.3390/buildings12060712,14,Table 9,,8,,summary_statistic_row; CUFSM stress=87.18; reported formula stress=84.25; displayed_ratio=1.03
+10.3390/buildings12060712,14,Table 9,,9,,summary_statistic_row; CUFSM stress=88.03; reported formula stress=85.36; displayed_ratio=1.03
+10.3390/buildings12060712,14,Table 9,,10,,summary_statistic_row; CUFSM stress=88.58; reported formula stress=85.95; displayed_ratio=1.03
+10.3390/buildings12060712,16,Table 11,,1,,summary_statistic_row; CUFSM stress=181.3; Hancock stress=240.5; displayed_ratio=0.75
+10.3390/buildings12060712,16,Table 11,,2,,summary_statistic_row; CUFSM stress=200.27; Hancock stress=240.5; displayed_ratio=0.83
+10.3390/buildings12060712,16,Table 11,,3,,summary_statistic_row; CUFSM stress=211.88; Hancock stress=240.5; displayed_ratio=0.88
+10.3390/buildings12060712,16,Table 11,,4,,summary_statistic_row; CUFSM stress=200.69; Hancock stress=240.5; displayed_ratio=0.83
+10.3390/buildings12060712,16,Table 11,,5,,summary_statistic_row; CUFSM stress=226.92; Hancock stress=240.5; displayed_ratio=0.94
+10.3390/buildings12060712,16,Table 11,,6,,summary_statistic_row; CUFSM stress=229.73; Hancock stress=240.5; displayed_ratio=0.96
+10.3390/buildings12060712,16,Table 11,,7,,summary_statistic_row; CUFSM stress=151.55; Hancock stress=241.16; displayed_ratio=0.63
+10.3390/buildings12060712,16,Table 11,,8,,summary_statistic_row; CUFSM stress=167.9; Hancock stress=241.16; displayed_ratio=0.7
+10.3390/buildings12060712,16,Table 11,,9,,summary_statistic_row; CUFSM stress=179.23; Hancock stress=241.16; displayed_ratio=0.74
+10.3390/buildings12060712,16,Table 11,,10,,summary_statistic_row; CUFSM stress=185.62; Hancock stress=241.16; displayed_ratio=0.77
+10.3390/buildings12060712,16,Table 11,,11,,summary_statistic_row; CUFSM stress=190.96; Hancock stress=241.16; displayed_ratio=0.79
+10.3390/buildings12060712,16,Table 11,,12,,summary_statistic_row; CUFSM stress=193.7; Hancock stress=241.16; displayed_ratio=0.8
+10.3390/buildings12060712,16,Table 11,,13,,summary_statistic_row; CUFSM stress=114.76; Hancock stress=236.94; displayed_ratio=0.48
+10.3390/buildings12060712,16,Table 11,,14,,summary_statistic_row; CUFSM stress=127.01; Hancock stress=236.94; displayed_ratio=0.54
+10.3390/buildings12060712,16,Table 11,,15,,summary_statistic_row; CUFSM stress=135.14; Hancock stress=236.94; displayed_ratio=0.57
+10.3390/buildings12060712,16,Table 11,,16,,summary_statistic_row; CUFSM stress=141.0; Hancock stress=236.94; displayed_ratio=0.6
+10.3390/buildings12060712,16,Table 11,,17,,summary_statistic_row; CUFSM stress=144.51; Hancock stress=236.94; displayed_ratio=0.61
+10.3390/buildings12060712,16,Table 11,,18,,summary_statistic_row; CUFSM stress=147.62; Hancock stress=236.94; displayed_ratio=0.62
