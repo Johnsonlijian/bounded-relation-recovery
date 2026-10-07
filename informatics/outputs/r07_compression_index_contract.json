@@ -1,0 +1,529 @@
+{
+  "case": "geotechnical_compression_index",
+  "source": {
+    "citation": "Uzer, A.U. (2024). Accurate Prediction of Compression Index of Normally Consolidated Soils Using Artificial Neural Networks. Buildings 14(9), 2688.",
+    "doi": "10.3390/buildings14092688",
+    "license": "CC-BY",
+    "pdf_sha256": "cf15bfdbe9b91e2145e39d000305f781d9b1ead1280d9001f2f4a0959939e2af",
+    "closed_form_locator": "p.13, table of attributed empirical Cc correlations",
+    "evidence_locator": "Appendix B, Table A2, pp.14-17"
+  },
+  "contract": {
+    "object": "normally consolidated fine-grained soil (oedometer records)",
+    "state": "initial void ratio e0",
+    "declared_domain": [
+      0.454,
+      2.018
+    ],
+    "response": "compression index Cc",
+    "displayed_half_unit": 0.0005,
+    "candidate_class": "published e0-only Cc correlations (not a permutation class)",
+    "cells_parsed": 445,
+    "reducer": "src/brr/actions.py::reduce_action",
+    "interval_predicate": "direct response interval; no positive scale or solver selector required"
+  },
+  "action_summary": {
+    "RETAIN_BOUNDED_CLAIM": 7,
+    "REJECT_NONEXECUTABLE": 2
+  },
+  "results": [
+    {
+      "relation": "Bowles (1989)",
+      "form": "0.40 e0 - 0.10",
+      "positive_on_domain": true,
+      "increasing": true,
+      "finite": true,
+      "max_abs_dev": 0.39959999999999996,
+      "mean_abs_dev": 0.05097932584269662,
+      "rmse": 0.07377353808343687,
+      "within_displayed_half_unit": 3,
+      "cells": 445,
+      "fraction_within": 0.006741573033707865,
+      "median_ratio_pred_obs": 0.9754838709677421,
+      "action": "RETAIN_BOUNDED_CLAIM",
+      "action_scope": "claim retained within the tested evidence scope",
+      "predicate_results": {
+        "P1.positivity": true,
+        "P2.monotonicity": true,
+        "P3.finiteness": true,
+        "E1.interval_feasibility": false,
+        "E2.coverage": true,
+        "V1.source_verified": true
+      }
+    },
+    {
+      "relation": "Azzouz et al. (1976) a",
+      "form": "0.40 (e0 - 0.25)",
+      "positive_on_domain": true,
+      "increasing": true,
+      "finite": true,
+      "max_abs_dev": 0.39959999999999996,
+      "mean_abs_dev": 0.05097932584269664,
+      "rmse": 0.07377353808343688,
+      "within_displayed_half_unit": 3,
+      "cells": 445,
+      "fraction_within": 0.006741573033707865,
+      "median_ratio_pred_obs": 0.9754838709677419,
+      "action": "RETAIN_BOUNDED_CLAIM",
+      "action_scope": "claim retained within the tested evidence scope",
+      "predicate_results": {
+        "P1.positivity": true,
+        "P2.monotonicity": true,
+        "P3.finiteness": true,
+        "E1.interval_feasibility": false,
+        "E2.coverage": true,
+        "V1.source_verified": true
+      }
+    },
+    {
+      "relation": "Lav & Ansal (2001)",
+      "form": "0.407 e0 - 0.094",
+      "positive_on_domain": true,
+      "increasing": true,
+      "finite": true,
+      "max_abs_dev": 0.388938,
+      "mean_abs_dev": 0.051009564044943716,
+      "rmse": 0.07410056089881577,
+      "within_displayed_half_unit": 2,
+      "cells": 445,
+      "fraction_within": 0.0044943820224719105,
+      "median_ratio_pred_obs": 1.0175726495726494,
+      "action": "RETAIN_BOUNDED_CLAIM",
+      "action_scope": "claim retained within the tested evidence scope",
+      "predicate_results": {
+        "P1.positivity": true,
+        "P2.monotonicity": true,
+        "P3.finiteness": true,
+        "E1.interval_feasibility": false,
+        "E2.coverage": true,
+        "V1.source_verified": true
+      }
+    },
+    {
+      "relation": "Park & Lee (2011)",
+      "form": "0.287 e0 - 0.015",
+      "positive_on_domain": true,
+      "increasing": true,
+      "finite": true,
+      "max_abs_dev": 0.3898579999999999,
+      "mean_abs_dev": 0.06436940224719107,
+      "rmse": 0.08990718140738391,
+      "within_displayed_half_unit": 0,
+      "cells": 445,
+      "fraction_within": 0.0,
+      "median_ratio_pred_obs": 0.90571,
+      "action": "RETAIN_BOUNDED_CLAIM",
+      "action_scope": "claim retained within the tested evidence scope",
+      "predicate_results": {
+        "P1.positivity": true,
+        "P2.monotonicity": true,
+        "P3.finiteness": true,
+        "E1.interval_feasibility": false,
+        "E2.coverage": true,
+        "V1.source_verified": true
+      }
+    },
+    {
+      "relation": "Rendon-Herrero (1980)",
+      "form": "0.49 e0 - 0.11",
+      "positive_on_domain": true,
+      "increasing": true,
+      "finite": true,
+      "max_abs_dev": 0.46726999999999996,
+      "mean_abs_dev": 0.0875518202247191,
+      "rmse": 0.11082730603374169,
+      "within_displayed_half_unit": 3,
+      "cells": 445,
+      "fraction_within": 0.006741573033707865,
+      "median_ratio_pred_obs": 1.2360299625468165,
+      "action": "RETAIN_BOUNDED_CLAIM",
+      "action_scope": "claim retained within the tested evidence scope",
+      "predicate_results": {
+        "P1.positivity": true,
+        "P2.monotonicity": true,
+        "P3.finiteness": true,
+        "E1.interval_feasibility": false,
+        "E2.coverage": true,
+        "V1.source_verified": true
+      }
+    },
+    {
+      "relation": "Gunduz & Arman (2007)",
+      "form": "0.506 e0 - 0.11",
+      "positive_on_domain": true,
+      "increasing": true,
+      "finite": true,
+      "max_abs_dev": 0.4916379999999999,
+      "mean_abs_dev": 0.10131442696629214,
+      "rmse": 0.12422824859940829,
+      "within_displayed_half_unit": 0,
+      "cells": 445,
+      "fraction_within": 0.0,
+      "median_ratio_pred_obs": 1.2893511450381678,
+      "action": "RETAIN_BOUNDED_CLAIM",
+      "action_scope": "claim retained within the tested evidence scope",
+      "predicate_results": {
+        "P1.positivity": true,
+        "P2.monotonicity": true,
+        "P3.finiteness": true,
+        "E1.interval_feasibility": false,
+        "E2.coverage": true,
+        "V1.source_verified": true
+      }
+    },
+    {
+      "relation": "Peck & Reed (1954)",
+      "form": "0.208 e0 + 0.0083",
+      "positive_on_domain": true,
+      "increasing": true,
+      "finite": true,
+      "max_abs_dev": 0.41917199999999993,
+      "mean_abs_dev": 0.10302323595505616,
+      "rmse": 0.13479013201649712,
+      "within_displayed_half_unit": 0,
+      "cells": 445,
+      "fraction_within": 0.0,
+      "median_ratio_pred_obs": 0.7259620253164556,
+      "action": "RETAIN_BOUNDED_CLAIM",
+      "action_scope": "claim retained within the tested evidence scope",
+      "predicate_results": {
+        "P1.positivity": true,
+        "P2.monotonicity": true,
+        "P3.finiteness": true,
+        "E1.interval_feasibility": false,
+        "E2.coverage": true,
+        "V1.source_verified": true
+      }
+    },
+    {
+      "relation": "Sowers & Sowers (1970)",
+      "form": "0.75 (e0 - 0.50)",
+      "positive_on_domain": false,
+      "increasing": true,
+      "finite": true,
+      "max_abs_dev": 0.59825,
+      "mean_abs_dev": 0.11857415730337087,
+      "rmse": 0.15768672897356337,
+      "within_displayed_half_unit": 1,
+      "cells": 445,
+      "fraction_within": 0.0022471910112359553,
+      "median_ratio_pred_obs": 1.2117903930131002,
+      "action": "REJECT_NONEXECUTABLE",
+      "action_scope": "route non-executable under mechanics/provenance predicates",
+      "predicate_results": {
+        "P1.positivity": false,
+        "P2.monotonicity": true,
+        "P3.finiteness": true,
+        "E1.interval_feasibility": false,
+        "E2.coverage": true,
+        "V1.source_verified": true
+      }
+    },
+    {
+      "relation": "Ahadiyan et al. (2008)",
+      "form": "1.02 - 0.95 e0",
+      "positive_on_domain": false,
+      "increasing": false,
+      "finite": true,
+      "max_abs_dev": 1.5591,
+      "mean_abs_dev": 0.3822550561797753,
+      "rmse": 0.5239288472576822,
+      "within_displayed_half_unit": 1,
+      "cells": 445,
+      "fraction_within": 0.0022471910112359553,
+      "median_ratio_pred_obs": 0.3985645933014356,
+      "action": "REJECT_NONEXECUTABLE",
+      "action_scope": "route non-executable under mechanics/provenance predicates",
+      "predicate_results": {
+        "P1.positivity": false,
+        "P2.monotonicity": false,
+        "P3.finiteness": true,
+        "E1.interval_feasibility": false,
+        "E2.coverage": true,
+        "V1.source_verified": true
+      }
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "geotech_correlation:Peck & Reed (1954)",
+      "action": "RETAIN_BOUNDED_CLAIM",
+      "predicates": {
+        "P1.positivity": {
+          "result": true,
+          "note": "min q(x) = 0.102732 on [0.454, 2.018]"
+        },
+        "P2.monotonicity": {
+          "result": true,
+          "note": "min forward difference = 0.000813"
+        },
+        "P3.finiteness": {
+          "result": true,
+          "note": "401 domain samples finite"
+        },
+        "E1.interval_feasibility": {
+          "result": false,
+          "note": "max absolute deviation 0.419172 vs displayed half-unit 0.0005"
+        },
+        "E2.coverage": {
+          "result": true,
+          "note": "0 cells outside [0.454, 2.018]"
+        },
+        "V1.source_verified": {
+          "result": true,
+          "note": "0 sources without a locator"
+        }
+      },
+      "source": "10.3390/buildings14092688"
+    },
+    {
+      "run_id": "geotech_correlation:Sowers & Sowers (1970)",
+      "action": "REJECT_NONEXECUTABLE",
+      "predicates": {
+        "P1.positivity": {
+          "result": false,
+          "note": "min q(x) = -0.034500 on [0.454, 2.018]"
+        },
+        "P2.monotonicity": {
+          "result": true,
+          "note": "min forward difference = 0.002932"
+        },
+        "P3.finiteness": {
+          "result": true,
+          "note": "401 domain samples finite"
+        },
+        "E1.interval_feasibility": {
+          "result": false,
+          "note": "max absolute deviation 0.598250 vs displayed half-unit 0.0005"
+        },
+        "E2.coverage": {
+          "result": true,
+          "note": "0 cells outside [0.454, 2.018]"
+        },
+        "V1.source_verified": {
+          "result": true,
+          "note": "0 sources without a locator"
+        }
+      },
+      "source": "10.3390/buildings14092688"
+    },
+    {
+      "run_id": "geotech_correlation:Azzouz et al. (1976) a",
+      "action": "RETAIN_BOUNDED_CLAIM",
+      "predicates": {
+        "P1.positivity": {
+          "result": true,
+          "note": "min q(x) = 0.081600 on [0.454, 2.018]"
+        },
+        "P2.monotonicity": {
+          "result": true,
+          "note": "min forward difference = 0.001564"
+        },
+        "P3.finiteness": {
+          "result": true,
+          "note": "401 domain samples finite"
+        },
+        "E1.interval_feasibility": {
+          "result": false,
+          "note": "max absolute deviation 0.399600 vs displayed half-unit 0.0005"
+        },
+        "E2.coverage": {
+          "result": true,
+          "note": "0 cells outside [0.454, 2.018]"
+        },
+        "V1.source_verified": {
+          "result": true,
+          "note": "0 sources without a locator"
+        }
+      },
+      "source": "10.3390/buildings14092688"
+    },
+    {
+      "run_id": "geotech_correlation:Rendon-Herrero (1980)",
+      "action": "RETAIN_BOUNDED_CLAIM",
+      "predicates": {
+        "P1.positivity": {
+          "result": true,
+          "note": "min q(x) = 0.112460 on [0.454, 2.018]"
+        },
+        "P2.monotonicity": {
+          "result": true,
+          "note": "min forward difference = 0.001916"
+        },
+        "P3.finiteness": {
+          "result": true,
+          "note": "401 domain samples finite"
+        },
+        "E1.interval_feasibility": {
+          "result": false,
+          "note": "max absolute deviation 0.467270 vs displayed half-unit 0.0005"
+        },
+        "E2.coverage": {
+          "result": true,
+          "note": "0 cells outside [0.454, 2.018]"
+        },
+        "V1.source_verified": {
+          "result": true,
+          "note": "0 sources without a locator"
+        }
+      },
+      "source": "10.3390/buildings14092688"
+    },
+    {
+      "run_id": "geotech_correlation:Park & Lee (2011)",
+      "action": "RETAIN_BOUNDED_CLAIM",
+      "predicates": {
+        "P1.positivity": {
+          "result": true,
+          "note": "min q(x) = 0.115298 on [0.454, 2.018]"
+        },
+        "P2.monotonicity": {
+          "result": true,
+          "note": "min forward difference = 0.001122"
+        },
+        "P3.finiteness": {
+          "result": true,
+          "note": "401 domain samples finite"
+        },
+        "E1.interval_feasibility": {
+          "result": false,
+          "note": "max absolute deviation 0.389858 vs displayed half-unit 0.0005"
+        },
+        "E2.coverage": {
+          "result": true,
+          "note": "0 cells outside [0.454, 2.018]"
+        },
+        "V1.source_verified": {
+          "result": true,
+          "note": "0 sources without a locator"
+        }
+      },
+      "source": "10.3390/buildings14092688"
+    },
+    {
+      "run_id": "geotech_correlation:Ahadiyan et al. (2008)",
+      "action": "REJECT_NONEXECUTABLE",
+      "predicates": {
+        "P1.positivity": {
+          "result": false,
+          "note": "min q(x) = -0.897100 on [0.454, 2.018]"
+        },
+        "P2.monotonicity": {
+          "result": false,
+          "note": "min forward difference = -0.003715"
+        },
+        "P3.finiteness": {
+          "result": true,
+          "note": "401 domain samples finite"
+        },
+        "E1.interval_feasibility": {
+          "result": false,
+          "note": "max absolute deviation 1.559100 vs displayed half-unit 0.0005"
+        },
+        "E2.coverage": {
+          "result": true,
+          "note": "0 cells outside [0.454, 2.018]"
+        },
+        "V1.source_verified": {
+          "result": true,
+          "note": "0 sources without a locator"
+        }
+      },
+      "source": "10.3390/buildings14092688"
+    },
+    {
+      "run_id": "geotech_correlation:Gunduz & Arman (2007)",
+      "action": "RETAIN_BOUNDED_CLAIM",
+      "predicates": {
+        "P1.positivity": {
+          "result": true,
+          "note": "min q(x) = 0.119724 on [0.454, 2.018]"
+        },
+        "P2.monotonicity": {
+          "result": true,
+          "note": "min forward difference = 0.001978"
+        },
+        "P3.finiteness": {
+          "result": true,
+          "note": "401 domain samples finite"
+        },
+        "E1.interval_feasibility": {
+          "result": false,
+          "note": "max absolute deviation 0.491638 vs displayed half-unit 0.0005"
+        },
+        "E2.coverage": {
+          "result": true,
+          "note": "0 cells outside [0.454, 2.018]"
+        },
+        "V1.source_verified": {
+          "result": true,
+          "note": "0 sources without a locator"
+        }
+      },
+      "source": "10.3390/buildings14092688"
+    },
+    {
+      "run_id": "geotech_correlation:Bowles (1989)",
+      "action": "RETAIN_BOUNDED_CLAIM",
+      "predicates": {
+        "P1.positivity": {
+          "result": true,
+          "note": "min q(x) = 0.081600 on [0.454, 2.018]"
+        },
+        "P2.monotonicity": {
+          "result": true,
+          "note": "min forward difference = 0.001564"
+        },
+        "P3.finiteness": {
+          "result": true,
+          "note": "401 domain samples finite"
+        },
+        "E1.interval_feasibility": {
+          "result": false,
+          "note": "max absolute deviation 0.399600 vs displayed half-unit 0.0005"
+        },
+        "E2.coverage": {
+          "result": true,
+          "note": "0 cells outside [0.454, 2.018]"
+        },
+        "V1.source_verified": {
+          "result": true,
+          "note": "0 sources without a locator"
+        }
+      },
+      "source": "10.3390/buildings14092688"
+    },
+    {
+      "run_id": "geotech_correlation:Lav & Ansal (2001)",
+      "action": "RETAIN_BOUNDED_CLAIM",
+      "predicates": {
+        "P1.positivity": {
+          "result": true,
+          "note": "min q(x) = 0.090778 on [0.454, 2.018]"
+        },
+        "P2.monotonicity": {
+          "result": true,
+          "note": "min forward difference = 0.001591"
+        },
+        "P3.finiteness": {
+          "result": true,
+          "note": "401 domain samples finite"
+        },
+        "E1.interval_feasibility": {
+          "result": false,
+          "note": "max absolute deviation 0.388938 vs displayed half-unit 0.0005"
+        },
+        "E2.coverage": {
+          "result": true,
+          "note": "0 cells outside [0.454, 2.018]"
+        },
+        "V1.source_verified": {
+          "result": true,
+          "note": "0 sources without a locator"
+        }
+      },
+      "source": "10.3390/buildings14092688"
+    }
+  ],
+  "boundary": "The parsed cells are a machine transcription of the printed table and were screened for physical admissibility; they are not the authors' original spreadsheet. The observed table range is the declared domain because the source does not publish a wider domain for this e0-only comparison. The dataset is independent of the listed correlations."
+}

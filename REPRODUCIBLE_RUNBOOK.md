@@ -1,21 +1,17 @@
-# Reproducible runbook — informatics artefact (October 2026)
+# Reproducible runbook — informatics artefact (R09, 7 October 2026)
 
 ## Scope
 
-Regenerates the typed knowledge graph, action trace, query examples, protocol controls, unconstrained-fit baseline, DSM demonstration slice, and vector figures from **public table transcriptions** and documented external manifests. No new cross-section families are introduced in this bundle.
-
-Parent project root: one level above `submission/INFORMATICS_ARTEFACT/`.
+Regenerates the typed knowledge graph, action trace, query examples, protocol controls, bounded Zhang reconstruction summaries, selector transfer records, the geotechnical direct-response case and vector figures from public table transcriptions and documented source manifests. No original Zhang CUFSM model files or Uzer spreadsheet are included.
 
 ## Environment
 
 - Python 3.11+
-- NumPy, pandas, Matplotlib
-- GNU Octave (only for CUFSM reconstruction / RP23-01 reruns under `external_sources/`)
-- LaTeX with `elsarticle` (manuscript PDF)
+- NumPy, pandas, Matplotlib, pypdf
+- GNU Octave only for optional CUFSM reconstruction / RP23-01 reruns
+- LaTeX with `elsarticle` for manuscript PDFs
 
-Record `python --version` and package versions in a dated run log before freezing a release candidate.
-
-## Core protocol regeneration (Python only)
+## Core run (Python)
 
 From the project root:
 
@@ -26,23 +22,21 @@ python src/r02_external_relation_transfer.py
 python src/r04_sr_baseline.py
 python src/r04_dsm_demo.py
 python src/r06_action_state_machine.py
+python src/r07_compression_index_case.py
+python src/r06_extend_artefact.py
+python src/r09_augment_geotechnical_graph.py
 python src/r06_package_informatics.py
+python -m brr.evaluate --self-test
 ```
 
-Expected core outputs:
+Expected headline records:
 
-- `knowledge_graph.json`
-- `outputs/knowledge_trace.csv`
-- `outputs/design_query_examples.csv`
-- `outputs/evidence_state.json`
-- `outputs/result_summary.json`
-- `outputs/r02_protocol_validation_summary.json`
-- `outputs/r04_sr_baseline_summary.json`
-- `outputs/r04_dsm_demo_summary.json`
-- `figures/figure_action_state_machine.{svg,pdf}`
-- `submission/INFORMATICS_ARTEFACT/` (refreshed copy + `MANIFEST.json`)
+- angle candidate class: 48; retained relation `+0.292 -0.339 x^2 +1.060 x`; required half-width `0.003127740 MPa`;
+- Zhang public held-out replay: 630 cells; bounded reconstruction RMSE `0.532%` under the frozen modulus contract;
+- geotechnical table: 445 admissible cells, 9 attributed correlations, `2 REJECT_NONEXECUTABLE`, `7 RETAIN_BOUNDED_CLAIM`;
+- action algebra: one reducer in `src/brr/actions.py` for all cases.
 
-## Extended evidence programme (optional Octave)
+## Extended structural evidence (optional Octave)
 
 ```powershell
 python src/r02_cufsm_transfer.py
@@ -52,7 +46,7 @@ python src/r04_rp23001_rebuild.py
 python src/r05_figures.py
 ```
 
-These regenerate bounded reconstruction, transfer screens and manuscript Figures 2, 8–10. They do **not** change the action algebra.
+These steps do not close the native-source-model or human-engineering gates.
 
 ## LaTeX
 
@@ -62,19 +56,12 @@ pdflatex -interaction=nonstopmode main.tex
 bibtex main
 pdflatex -interaction=nonstopmode main.tex
 pdflatex -interaction=nonstopmode main.tex
+pdflatex -interaction=nonstopmode supplement.tex
+bibtex supplement
+pdflatex -interaction=nonstopmode supplement.tex
+pdflatex -interaction=nonstopmode supplement.tex
 ```
-
-## Acceptance checks
-
-| Check | Expected |
-|-------|----------|
-| Angle winner | `+0.292 -0.339 x^2 +1.060 x` |
-| Printed route | `reject_nonexecutable` on all six query examples |
-| Recovered route | `allow_bounded_query` on the same six queries |
-| SR baseline RMSE | 0.001584 MPa (joint LS) vs 0.001669 MPa (protocol) |
-| DSM demo | recovered φ_l within 0.013%; printed non-executable |
-| Channel programme | `retain_bounded_claim` after independent selector sample |
 
 ## Evidence boundary
 
-`LOCAL_ONLY / NOT_SUBMITTED`. Native author CUFSM files, batch modulus metadata and operational engineering sign-off remain outside this artefact. The runbook documents regeneration; it is not an editorial decision or upload receipt.
+`LOCAL_ONLY / NOT_SUBMITTED / HUMAN_ENGINEERING_GATE_OPEN`. The public GitHub/Zenodo records preceding this R09 candidate must be refreshed and reviewed before any external upload. The runbook is a regeneration contract, not an editorial receipt or engineering approval.

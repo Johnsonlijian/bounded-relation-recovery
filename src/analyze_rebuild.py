@@ -300,6 +300,63 @@ knowledge_graph = {
         {"id": "R8", "if": "independent source spectrum screen passes under a declared predicate", "then": "retain_bounded_transfer_evidence; do not promote to universal recovery"},
     ],
 }
+geo_contract_path = OUT / "r07_compression_index_contract.json"
+if geo_contract_path.exists():
+    geo = json.loads(geo_contract_path.read_text(encoding="utf-8"))
+    knowledge_graph["ontology_version"] = "1.3"
+    knowledge_graph["scope"] = "knowledge-constrained recovery protocol demonstrated on cold-formed steel and geotechnical relations"
+    knowledge_graph.setdefault("provenance", {})["independent_geotechnical_case"] = {
+        "source": geo["source"],
+        "contract": geo["contract"],
+        "action_summary": geo.get("action_summary", {}),
+        "scope": "cross-domain direct-response correlation screen; no solver selector required",
+    }
+    knowledge_graph.setdefault("evidence_classes", {})["cross_domain_case_evidence"] = (
+        "Uzer 2024 independent oedometer table; nine published e0-only correlations; "
+        "two positivity rejects and seven bounded retains through the shared reducer"
+    )
+    node_ids = {n["id"] for n in knowledge_graph.get("nodes", [])}
+    for node in [
+        {"id": "GeotechnicalSoil", "kind": "engineering_object", "attributes": ["normally consolidated fine-grained soil"]},
+        {"id": "VoidRatio", "kind": "dimensionless_state", "definition": "e0", "domain": geo["contract"]["declared_domain"]},
+        {"id": "CompressionIndex", "kind": "response", "definition": "Cc", "unit": "-"},
+        {"id": "PublishedCcCorrelation", "kind": "candidate_relation", "definition": "nine attributed e0-only correlations"},
+        {"id": "OedometerCell", "kind": "experimental_evidence", "definition": "independent printed Table A2 cell +/- 0.0005"},
+    ]:
+        if node["id"] not in node_ids:
+            knowledge_graph["nodes"].append(node)
+    existing_relations = {tuple(r) for r in knowledge_graph.get("relations", [])}
+    for rel in [
+        ["GeotechnicalSoil", "defines", "VoidRatio"],
+        ["VoidRatio", "enters", "PublishedCcCorrelation"],
+        ["PublishedCcCorrelation", "predicts", "CompressionIndex"],
+        ["OedometerCell", "tests", "PublishedCcCorrelation"],
+        ["CompressionIndex", "supports", "DesignAction"],
+    ]:
+        if tuple(rel) not in existing_relations:
+            knowledge_graph["relations"].append(rel)
+    rule_ids = {r["id"] for r in knowledge_graph.get("rules", [])}
+    for rule in [
+        {"id": "R11", "if": "a published response is non-positive on its declared domain", "then": "reject_nonexecutable"},
+        {"id": "R12", "if": "a direct-response correlation misses the displayed interval while mechanics pass", "then": "retain_bounded_claim"},
+        {"id": "R13", "if": "no numerical solver selector is required by the direct-response source", "then": "record selector as not applicable; do not invent one"},
+    ]:
+        if rule["id"] not in rule_ids:
+            knowledge_graph["rules"].append(rule)
+    run_ids = {r.get("run_id") for r in knowledge_graph.get("runs", [])}
+    if "geotechnical_compression_index" not in run_ids:
+        knowledge_graph.setdefault("runs", []).append({
+            "run_id": "geotechnical_compression_index",
+            "object": "GeotechnicalSoil",
+            "state": "VoidRatio",
+            "response": "CompressionIndex",
+            "relation": {"id": "PublishedCcCorrelation", "candidate_class": "nine published e0-only correlations", "domain": geo["contract"]["declared_domain"]},
+            "predicates": {"mechanics.positivity": "relation-specific", "mechanics.monotonicity": "relation-specific", "mechanics.finiteness": True, "evidence.interval_feasibility": False, "provenance.selector_verified": "not applicable"},
+            "evidence": {"cells": geo["contract"]["cells_parsed"], "displayed_half_unit": geo["contract"]["displayed_half_unit"], "action_summary": geo.get("action_summary", {})},
+            "action": "heterogeneous; see outputs/r07_compression_index_contract.json",
+            "scope": "observed Table A2 domain only; transcribed cells and direct-response interval predicate",
+        })
+
 (ROOT / "knowledge_graph.json").write_text(json.dumps(knowledge_graph, indent=2), encoding="utf-8")
 
 winner = margin.loc[margin["is_reconstructed_assignment"] == True].iloc[0]
@@ -372,6 +429,14 @@ trace = pd.DataFrame([
     {"claim": "an independent published complex-edge source transfers to the spectrum predicate", "knowledge_rule": "R8", "evidence": "24 KSCE Table 2 rows; RMSE 0.720%; q95 1.542%; max 1.620%; 10% screen", "status": "bounded_transfer_pass"},
     {"claim": "CUFSM simulations were independently rerun", "knowledge_rule": "scope", "evidence": "native author files not available", "status": "not_claimed"},
 ])
+if geo_contract_path.exists():
+    trace = pd.concat([trace, pd.DataFrame([{
+        "claim": "a second domain runs through the shared action reducer",
+        "knowledge_rule": "R11+R12+R13",
+        "evidence": "Uzer 2024 Table A2; 445 cells; nine competing e0-only correlations",
+        "status": "cross_domain_action_reducer_pass",
+    }])], ignore_index=True)
+
 trace.to_csv(OUT / "knowledge_trace.csv", index=False)
 
 # Compact residual and sensitivity outputs used by the manuscript and reviewer packet.
@@ -423,6 +488,13 @@ evidence_state = {
     "action_boundary": "allow_bounded_query only; operational use remains gated by R6",
     "excluded_identity": "IFC compliance-check manuscript and its submission history are outside this project"
 }
+if geo_contract_path.exists():
+    geo = json.loads(geo_contract_path.read_text(encoding="utf-8"))
+    evidence_state["revision_date"] = "2026-10-07"
+    evidence_state["evidence_classes"]["cross_domain_case_evidence"] = "available; Uzer 2024 Table A2; 445 cells; nine competing correlations; shared reducer"
+    evidence_state["geotechnical_case_action_summary"] = geo.get("action_summary", {})
+    evidence_state["geotechnical_case_boundary"] = geo.get("boundary", "")
+
 (OUT / "evidence_state.json").write_text(json.dumps(evidence_state, indent=2), encoding="utf-8")
 
 # Figure 1: knowledge-to-action mechanism, vector-first.

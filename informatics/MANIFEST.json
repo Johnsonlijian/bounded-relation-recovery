@@ -2,17 +2,27 @@
   "package": "INFORMATICS_ARTEFACT",
   "purpose": "Submission-facing informatics deliverable for Advanced Engineering Informatics",
   "submission_state": "LOCAL_ONLY / NOT_SUBMITTED",
-  "ontology_version": "1.2",
+  "ontology_version": "1.4",
   "files": [
     {
-      "path": "knowledge_graph.json",
-      "sha256": "b925e326ee0ea7774f4632edbb9c8b20697d3163fc91f61339b91a70da085c72",
-      "bytes": 7639
+      "path": "ACTION_TRACE_GUIDE.md",
+      "sha256": "60e8c3220f005affe40f582442eb50d7ea6c709b0d657b201a435a97eb2d76c4",
+      "bytes": 1436
     },
     {
-      "path": "outputs/knowledge_trace.csv",
-      "sha256": "ce1ce9e1de3491603b5c1f001ad459ba70b1806a8be73877cefc35ab62e5982b",
-      "bytes": 1701
+      "path": "data/r07_compression_index_dataset.csv",
+      "sha256": "ca4cfc8cf3fb375a185d069105ea9329c4e02f83d4b35650dafe6570080caf02",
+      "bytes": 5705
+    },
+    {
+      "path": "knowledge_graph.json",
+      "sha256": "91d1c9089988ed093509c886047fd1149f8a611d2afa27f48fd7c5be7ba43f8d",
+      "bytes": 28105
+    },
+    {
+      "path": "outputs/channel_query_examples.csv",
+      "sha256": "ceddb1b1d0d7849f404bae42d7814df520b3cc24eb2304e6714586d7ca222309",
+      "bytes": 2866
     },
     {
       "path": "outputs/design_query_examples.csv",
@@ -21,23 +31,18 @@
     },
     {
       "path": "outputs/evidence_state.json",
-      "sha256": "2f5b9e8577135b2447e11ab93876387e018f4f540d8b933206eaaa162801f713",
-      "bytes": 1571
+      "sha256": "e8028c03f1bb54e97dfcadff48bba7a9f690833d6aa11d7d4af4d9571d8223ed",
+      "bytes": 2308
     },
     {
-      "path": "outputs/result_summary.json",
-      "sha256": "54f28f3c7686c0b1f9adb3dc6258883115d59173a7182c8453934aeefd049c63",
-      "bytes": 1814
+      "path": "outputs/knowledge_trace.csv",
+      "sha256": "bb8abe36eccf8962b2a1cf6edb296c513b659af3a6e664f497b051a6994ce337",
+      "bytes": 1869
     },
     {
       "path": "outputs/r02_protocol_validation_summary.json",
-      "sha256": "4b6afa10182ff553a555f849d21100e9a44dc9f4bfbf85f518ca36ae75e2ed06",
-      "bytes": 733
-    },
-    {
-      "path": "outputs/r04_sr_baseline_summary.json",
-      "sha256": "751fa7084cf91a7b1fe2a28b6c9fdb0941f33a41b88039cd3e066ebab477fda3",
-      "bytes": 3782
+      "sha256": "ac0de372c24e20de787a94190f0bf352f1e8091c72f82d1582bdad1ab995eedf",
+      "bytes": 1061
     },
     {
       "path": "outputs/r04_dsm_demo_summary.json",
@@ -45,29 +50,79 @@
       "bytes": 1446
     },
     {
-      "path": "src/brr/schema.py",
-      "sha256": "878970050d0a083b5ae39207d47f1c8041077432a73c32b42f077967afddc7a1",
-      "bytes": 2607
+      "path": "outputs/r04_sr_baseline_summary.json",
+      "sha256": "751fa7084cf91a7b1fe2a28b6c9fdb0941f33a41b88039cd3e066ebab477fda3",
+      "bytes": 3782
     },
     {
-      "path": "src/brr/actions.py",
-      "sha256": "327e0ad967f111e6f93fb6ef8fac1a0538599b3c152804b6f4de6db146fe5932",
-      "bytes": 1875
+      "path": "outputs/r05_rp2301_bending.csv",
+      "sha256": "963ab355b4e222923d6fff5c8fc35ac084164990345664e0bba814312799dd9b",
+      "bytes": 385
+    },
+    {
+      "path": "outputs/r05_rp2301_round_corner.csv",
+      "sha256": "fab20a9f1bbefe9e68463539e030ee15a305483ceba3d283130d55a6bad5fd10",
+      "bytes": 905
+    },
+    {
+      "path": "outputs/r07_compression_index_contract.json",
+      "sha256": "28fa73223379aec34a88a597fcaaf7131a745b8bf01c8e8cdc5489952183fa48",
+      "bytes": 17505
+    },
+    {
+      "path": "outputs/r07_compression_index_dataset.csv",
+      "sha256": "ca4cfc8cf3fb375a185d069105ea9329c4e02f83d4b35650dafe6570080caf02",
+      "bytes": 5705
+    },
+    {
+      "path": "outputs/result_summary.json",
+      "sha256": "247f68681a74dd863815c8dc4832e0aeffe71769448cd83744fd38051a62cf01",
+      "bytes": 2039
     },
     {
       "path": "README.md",
-      "sha256": "dabd5266cc0a70586852370e0dafded4c87857563f93f091e7571fe1699f232f",
-      "bytes": 2889
+      "sha256": "b85d1c6dc27c0af03631b304f61c4397c42807f2b3ae9100fd3bfa233cf89c5c",
+      "bytes": 2202
     },
     {
       "path": "REPRODUCIBLE_RUNBOOK.md",
-      "sha256": "84c44045507eb1cc08d0ee2ab17692fe414de503b4c7ea0d7320d9e85fa54389",
-      "bytes": 2815
+      "sha256": "5ff843c6a259d74d6b7b1daf301a47ddeeb76598b77ddc5dfcb810a4eccb490f",
+      "bytes": 2513
     },
     {
-      "path": "ACTION_TRACE_GUIDE.md",
-      "sha256": "210720eb8b4dc8a0dd0ecba83ca504072c3db2b8cb3f89bdd421addc277bdfc2",
-      "bytes": 3103
+      "path": "src/brr/__init__.py",
+      "sha256": "ee4eea3acf2c921a4a348bf02252a7aa694a1e4a03145c9fed0da968c20008b8",
+      "bytes": 592
+    },
+    {
+      "path": "src/brr/actions.py",
+      "sha256": "2b618737a6220a409889eefa0c324e7c970af196a20b5f6bfac25da7d54f2fd8",
+      "bytes": 1965
+    },
+    {
+      "path": "src/brr/evaluate.py",
+      "sha256": "e6f75e2230dcf132c588f04085f032d7996b7ff87c0833adec27c6dd7660a43d",
+      "bytes": 23549
+    },
+    {
+      "path": "src/brr/schema.py",
+      "sha256": "7ff89550e46a3f2939ec3f6cef1cf54d16419ae115a00024c8e4e0b5ee8ccf0c",
+      "bytes": 2789
+    },
+    {
+      "path": "src/r06_fix_figures.py",
+      "sha256": "9292cdea33e6b49dd9b6e5416a5e43a9e8c13bb5c2a217b6f077ecc068c65728",
+      "bytes": 12707
+    },
+    {
+      "path": "src/r07_compression_index_case.py",
+      "sha256": "f00fe6c00bad4247580daa91a02c786b5fa0d11be8f8713f084fa57cd0f58872",
+      "bytes": 7378
+    },
+    {
+      "path": "src/r09_augment_geotechnical_graph.py",
+      "sha256": "e7e1bc278c9d0c528d97a428227e8d6b67af096d4a8890363cc6f6cba829e419",
+      "bytes": 5908
     }
   ]
 }

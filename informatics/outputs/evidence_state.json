@@ -1,6 +1,6 @@
 {
   "project": "AEI_KNOWLEDGE_ENGINEERING_REBUILD_2026-09-26",
-  "revision_date": "2026-10-05",
+  "revision_date": "2026-10-07",
   "state": "LOCAL_ONLY / NOT_SUBMITTED",
   "primary_claim": "A knowledge-constrained recovery protocol binds typed predicates, finite-precision evidence, provenance and bounded actions; the lipped-angle demonstration recovers one positive increasing shape within the declared permutation/sign class.",
   "evidence_classes": {
@@ -12,9 +12,16 @@
     "source_model_reconstruction_evidence": "available; 630 published cells; RMSE 0.532%; q95 1.320%; max 2.431%; metadata boundary",
     "independent_ksce_spectrum_transfer_evidence": "available; 24 published rows; nearest-spectrum screen pass; mode metadata boundary",
     "external_relation_transfer_evidence": "available; AISI RP23-01 Eq. (19) card; 7 cells; positive-bounded gate pass; source FSM not rerun",
-    "independent_engineer_blind_review": "author self-review only; no independent review claimed",
-    "operational_design_validation": "not_available"
+    "independent_engineer_blind_review": "open",
+    "operational_design_validation": "not_available",
+    "cross_domain_case_evidence": "available; Uzer 2024 Table A2; 445 cells; nine competing correlations; shared reducer"
   },
   "action_boundary": "allow_bounded_query only; operational use remains gated by R6",
-  "excluded_identity": "IFC compliance-check manuscript and its submission history are outside this project"
+  "excluded_identity": "IFC compliance-check manuscript and its submission history are outside this project",
+  "geotechnical_case_action_summary": {
+    "RETAIN_BOUNDED_CLAIM": 7,
+    "REJECT_NONEXECUTABLE": 2
+  },
+  "geotechnical_case_boundary": "The parsed cells are a machine transcription of the printed table and were screened for physical admissibility; they are not the authors' original spreadsheet. The observed table range is the declared domain because the source does not publish a wider domain for this e0-only comparison. The dataset is independent of the listed correlations.",
+  "cross_domain_case_evidence": "available; Uzer 2024 Table A2; 445 cells; nine competing correlations; shared reducer"
 }

@@ -1,67 +1,22 @@
 # Action trace guide
 
-## Purpose
+The protocol returns one action per relation run. `outputs/knowledge_trace.csv` links each claim to its rule, evidence and status; it is not a pooled accuracy table.
 
-The protocol returns **one action per run**. The trace files make that action inspectable without re-running solvers or fits.
+## Action levels
 
-## `outputs/knowledge_trace.csv`
+| Level | Name | Trigger |
+|---|---|---|
+| 0 | `REJECT_NONEXECUTABLE` | mechanics or source-provenance predicate fails |
+| 1 | `RETAIN_BOUNDED_CLAIM` | evidence, coverage, selector or direct-response interval remains incomplete |
+| 2 | `ALLOW_BOUNDED_QUERY` | declared predicates pass inside the tested scope |
+| 3 | `ALLOW_OPERATIONAL_USE` | never granted by the computational layer |
 
-Columns:
+`src/brr/actions.py` is the single reducer. `src/brr/evaluate.py` computes typed predicates before calling it.
 
-| Column | Meaning |
-|--------|---------|
-| `claim` | Plain-language statement being audited |
-| `knowledge_rule` | Rule id in the graph (R1–R8 or method/transfer gate label) |
-| `evidence` | What was actually checked (cell counts, domains, manifests) |
-| `status` | Outcome label (`rejected`, `supported`, `bounded_*`, `not_claimed`, etc.) |
+## Executed cases
 
-Example rows (abbreviated):
+- Zhang lipped-angle relation: printed route rejects; one candidate in the 48-member class allows a bounded query within the declared evidence scope.
+- AISI lipped-channel relation: mechanics and rounded-card predicates pass, but selector/corner evidence retains a bounded claim.
+- Uzer geotechnical correlations: 445 cells over the observed `e0` domain; two candidates reject on positivity and seven retain bounded claims because none meets the displayed `0.0005` direct-response interval. The source has no numerical solver selector, so selector verification is recorded as not applicable rather than guessed.
 
-- **Printed route executable** → `R1` → 20 rounded cells → `rejected` (shape negative on domain).
-- **Identified assignment compatible** → `R4` → 4/4 groups at 0.005 MPa → `supported_within_candidate_class`.
-- **CUFSM independently rerun** → scope gate → native files unavailable → `not_claimed`.
-
-The trace is **not** a performance log. It does not rank relations by RMSE.
-
-## `outputs/design_query_examples.csv`
-
-Each row is a deterministic query on the lipped-angle programme:
-
-| Column | Meaning |
-|--------|---------|
-| `a_over_t`, `a_over_b` | Query coordinates |
-| `printed_shape`, `identified_shape` | Shape evaluation at the query point |
-| `printed_action`, `identified_action` | Protocol actions for the two relations |
-| `operational_gate` | Always open in this study (`independent CUFSM rerun + human engineer review`) |
-
-The contrast between `reject_nonexecutable` (printed) and `allow_bounded_query` (recovered) is the engineering informatics result for this object.
-
-## `knowledge_graph.json`
-
-Key sections:
-
-- `provenance` — source DOI, what was and was not rerun, reconstruction boundaries.
-- `evidence_classes` — `case`, `method`, `transfer` (not pooled into one accuracy score).
-- `method_controls` — positive control, 15 injected failures, 200 digit perturbations.
-- `nodes` / `rules` — typed objects and compiled predicates.
-
-## Action levels (`src/brr/schema.py`)
-
-| Level | Name | When emitted |
-|-------|------|--------------|
-| 0 | `reject_nonexecutable` | Mechanics or provenance predicate fails |
-| 1 | `retain_bounded_claim` | Predicates incomplete, selector mismatch, or hold-out not contract-matched |
-| 2 | `allow_bounded_query` | All declared predicates pass inside tested scope |
-| 3 | `allow_operational_use` | **Not granted** by the computational layer in this study |
-
-Reduction order is implemented in `src/brr/actions.py` and illustrated in manuscript Figure `fig:statemachine`.
-
-## Mapping to manuscript evidence programme
-
-| Programme row | Typical trace / query signal |
-|---------------|------------------------------|
-| Printed angle expression | `reject_nonexecutable` on printed route |
-| Recovered angle assignment | `allow_bounded_query` in query examples; bounded replay in trace |
-| Unconstrained quadratic fit | Not an action; see `r04_sr_baseline_summary.json` |
-| Channel compression / bending | Predicate pass, independent sample → `retain_bounded_claim` (see main text) |
-| Complex-edge spectrum screen | `bounded_transfer_pass` in trace |
+Open operational gates are preserved in every run. No action record is a member-safety decision.

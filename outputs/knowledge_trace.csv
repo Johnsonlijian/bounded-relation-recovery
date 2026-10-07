@@ -10,6 +10,4 @@ a different relation form can use an explicit predicate map,transfer card,AISI R
 published source-model geometry and response path were independently recreated,source reconstruction,630 Table 4/Table 8 cells; RMSE 0.532%; q95 1.320%; max 2.431%; E_eff metadata boundary,bounded_reconstruction_pass
 an independent published complex-edge source transfers to the spectrum predicate,R8,24 KSCE Table 2 rows; RMSE 0.720%; q95 1.542%; max 1.620%; 10% screen,bounded_transfer_pass
 CUFSM simulations were independently rerun,scope,native author files not available,not_claimed
-channel compression equation is positive and finite,R1+R2,AISI RP23-01 Eq. (19) card; 7 rounded cells; turning point at sqrt(20),predicates_pass
-channel query is withheld,retain_bounded_claim,15 sharp-corner sections; 12/15 inside the predeclared 10% screen; pure-local basis moves the ratio to 1.104-1.331; corner and mode contract not reproduced,retain_bounded_claim
-channel coefficient beats the element baseline at most ratios,R10,Eq. (19) closer than k = 4 on 13 of 15 sections; reverses at eta = 16 and 20,bounded_no_query_at_high_eta
+a second domain runs through the shared action reducer,R11+R12+R13,Uzer 2024 Table A2; 445 cells; nine competing e0-only correlations,cross_domain_action_reducer_pass

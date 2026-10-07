@@ -18,6 +18,7 @@ class PredicateType(Enum):
     EVIDENCE_INTERVAL_FEASIBILITY = "evidence.interval_feasibility"
     EVIDENCE_COVERAGE = "evidence.coverage"
     PROVENANCE_SOURCE_VERIFIED = "provenance.source_verified"
+    PROVENANCE_SELECTOR_VERIFIED = "provenance.selector_verified"
 
 
 class EvidenceClass(Enum):
