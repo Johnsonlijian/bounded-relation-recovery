@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-"""R10 evidence additions for the bounded-release calculus.
+"""Bounded-release evidence additions for the bounded-release calculus.
 
 This script adds only deterministic checks grounded in already archived project
 inputs: the global-vs-group scale intersection, predicate/action blocking
@@ -62,7 +62,7 @@ def dummy_run(overrides: dict[PredicateType, bool | None] | None = None) -> Boun
                 predicate_id=pid,
                 predicate_type=kind,
                 expression="predeclared control predicate",
-                declared_by="R10 method control",
+                declared_by="bounded-release method control",
                 result=overrides.get(kind, True),
             )
         )
@@ -175,70 +175,141 @@ def theory_properties(matrix: pd.DataFrame, global_scale: dict, transfer: pd.Dat
 
 
 def figure_calculus(matrix: pd.DataFrame, global_scale: dict, transfer: pd.DataFrame) -> None:
-    fig = plt.figure(figsize=(12.0, 7.2), constrained_layout=True)
-    gs = fig.add_gridspec(2, 2, height_ratios=[1.08, 1.0])
+    # Both figures are drawn on a canvas that matches the Elsevier preprint text
+    # column (391 pt = 5.43 in) so the LaTeX scale factor is 1.0 and every label
+    # prints at its design size. Text is deliberately ASCII-only: an earlier
+    # version used arrows and bullets that vanished after a source round-trip.
+    fig = plt.figure(figsize=(5.43, 4.7), constrained_layout=True)
+    gs = fig.add_gridspec(2, 2, height_ratios=[1.0, 1.25])
     ax0 = fig.add_subplot(gs[0, :])
     ax0.axis("off")
-    # Center the headings over their boxes so the mechanism remains legible at
-    # single-column width; the previous left-anchored labels collided.
-    ax0.text(0.12, 0.78, r"Typed contract $\Gamma=(\tau,\mathcal{Q},E,P,V)$",
-             ha="center", fontsize=11.5, weight="bold")
-    ax0.text(0.415, 0.78, "fixed predicate evaluation", ha="center",
-             fontsize=11.5, weight="bold")
-    ax0.text(0.80, 0.78, "one computational permission", ha="center",
-             fontsize=11.5, weight="bold")
-    boxes = [(0.01, 0.30, 0.22, 0.32, "object / state / response\ndomain + candidate class\nrounded cells + provenance", "#E8F1FA"),
-             (0.29, 0.30, 0.25, 0.32, "mechanics → evidence → provenance\n\nfit is not a release predicate", "#F4EFE3"),
-             (0.66, 0.30, 0.28, 0.32, "REJECT  →  RETAIN  →  ALLOW\n\noperational use remains outside\ncomputational closure", "#E7F3E8")]
+    ax0.text(0.16, 0.92, "typed contract", ha="center", va="top", fontsize=8.4, weight="bold")
+    ax0.text(0.50, 0.92, "fixed predicates", ha="center", va="top", fontsize=8.4, weight="bold")
+    ax0.text(0.84, 0.92, "one permission", ha="center", va="top", fontsize=8.4, weight="bold")
+    boxes = [
+        (0.000, 0.34, 0.315, 0.42,
+         "object, state, response\ndomain, candidate class\ncells + provenance", "#E8F1FA"),
+        (0.350, 0.34, 0.300, 0.42,
+         "mechanics, evidence,\nprovenance\n\nfit is not a\nrelease predicate", "#F4EFE3"),
+        (0.685, 0.34, 0.315, 0.42,
+         "REJECT > RETAIN\n> ALLOW\n\noperational use stays\noutside the closure", "#E7F3E8"),
+    ]
     for x, y, w, h, label, color in boxes:
-        ax0.add_patch(plt.Rectangle((x, y), w, h, facecolor=color, edgecolor="#243447", linewidth=1.3))
-        ax0.text(x + w/2, y + h/2, label, ha="center", va="center", fontsize=11)
-    ax0.annotate("", xy=(0.64, 0.46), xytext=(0.55, 0.46), arrowprops={"arrowstyle": "->", "lw": 2})
-    ax0.annotate("", xy=(0.27, 0.46), xytext=(0.23, 0.46), arrowprops={"arrowstyle": "->", "lw": 2})
-    ax0.text(0.80, 0.14, "OP", color="#A23E48", ha="center", fontsize=10, weight="bold")
-    ax0.text(0.5, 0.08, "tested properties: determinism • monotone blocking • finite-class closure • scale non-identification • fitting independence",
-             ha="center", fontsize=9.0, color="#243447")
+        ax0.add_patch(plt.Rectangle((x, y), w, h, facecolor=color, edgecolor="#243447", linewidth=1.0))
+        ax0.text(x + w / 2, y + h / 2, label, ha="center", va="center", fontsize=6.8)
+    ax0.annotate("", xy=(0.347, 0.55), xytext=(0.317, 0.55), arrowprops={"arrowstyle": "->", "lw": 1.3})
+    ax0.annotate("", xy=(0.682, 0.55), xytext=(0.652, 0.55), arrowprops={"arrowstyle": "->", "lw": 1.3})
+    ax0.text(0.845, 0.20, "OP", color="#A23E48", ha="center", va="top", fontsize=7.6, weight="bold")
+    ax0.text(0.5, 0.02, "tested: determinism, monotone blocking, finite-class closure,\n"
+                        "scale non-identification, fitting independence",
+             ha="center", va="bottom", fontsize=7.0, color="#243447")
 
     ax1 = fig.add_subplot(gs[1, 0])
+    action_order = {"REJECT_NONEXECUTABLE": 0, "RETAIN_BOUNDED_CLAIM": 1, "ALLOW_BOUNDED_QUERY": 2}
     colors = {"ALLOW_BOUNDED_QUERY": "#2A9D8F", "RETAIN_BOUNDED_CLAIM": "#E9C46A", "REJECT_NONEXECUTABLE": "#E76F51"}
-    y = np.arange(len(matrix))
-    ax1.barh(y, matrix["expected_order"], color=[colors[v] for v in matrix["result"]], edgecolor="#243447")
-    ax1.set_yticks(y, [s.replace("single-gate perturbation", "gate perturbation") for s in matrix["changed_predicate"]], fontsize=8.2)
-    ax1.set_xlim(0, 2.35); ax1.set_xticks([0, 1, 2], ["reject", "retain", "allow"])
-    ax1.invert_yaxis(); ax1.set_title("A  Gate failure only blocks release", loc="left", weight="bold", fontsize=11)
+    # Encode the reduced action as a categorical block, not as a bar length. A length
+    # encoding made every REJECT row a zero-width bar, so the blocker path -- the
+    # point of the panel -- was invisible.
+    levels = np.array([action_order[v] for v in matrix["result"]], dtype=float)
+    y = np.arange(len(matrix), dtype=float)
+    ax1.barh(y, np.full(len(matrix), 0.82), left=levels - 0.41,
+             color=[colors[v] for v in matrix["result"]], edgecolor="#243447", height=0.60)
+    shorten = {"mechanics.": "mech.", "evidence.": "evid.", "provenance.": "prov."}
+    row_labels = []
+    for s in matrix["changed_predicate"]:
+        if s == "none":
+            lab = "no gate failed"
+        else:
+            lab = s.replace("single-gate perturbation", "gate perturbation")
+            lab = lab.replace(" = false", "").replace(" = open", " (open)")
+        for key, val in shorten.items():
+            lab = lab.replace(key, val)
+        row_labels.append(lab)
+    ax1.set_yticks(y, row_labels, fontsize=7.4)
+    ax1.set_xlim(-0.62, 2.62)
+    ax1.set_xticks([0, 1, 2], ["reject", "retain", "allow"])
+    ax1.tick_params(axis="x", labelsize=7.4)
+    ax1.set_xlabel("reduced action", fontsize=7.4)
+    ax1.invert_yaxis()
+    ax1.set_title("A  One changed gate, one action", loc="left", weight="bold", fontsize=8.2)
     ax1.grid(axis="x", alpha=0.25)
 
     ax2 = fig.add_subplot(gs[1, 1])
-    labels = [f"{r.calibration_table} → {r.scored_table}" for r in transfer.itertuples()]
+    labels = [f"{r.calibration_table}\nto {r.scored_table}" for r in transfer.itertuples()]
     vals = transfer["rmse_relative_pct"].to_numpy()
     bars = ax2.bar(labels, vals, color=["#457B9D", "#A8DADC"], edgecolor="#243447")
-    ax2.set_ylabel("relative RMSE (%)")
-    ax2.set_title("B  Cross-table transfer remains bounded", loc="left", weight="bold", fontsize=11)
+    ax2.set_ylabel("relative RMSE (%)", fontsize=7.4)
+    ax2.tick_params(axis="y", labelsize=7.4)
+    ax2.tick_params(axis="x", labelsize=7.0)
+    ax2.set_ylim(0.0, float(vals.max()) * 1.42)
+    ax2.set_title("B  Cross-table transfer", loc="left", weight="bold", fontsize=8.2)
     ax2.grid(axis="y", alpha=0.25)
-    for b, v in zip(bars, vals): ax2.text(b.get_x()+b.get_width()/2, v+0.03, f"{v:.3f}", ha="center", fontsize=9)
-    ax2.text(0.02, 0.95, "same Zhang source; not independent validation", transform=ax2.transAxes, fontsize=8.5, va="top", color="#555")
+    for b, v in zip(bars, vals):
+        ax2.text(b.get_x() + b.get_width() / 2, v + float(vals.max()) * 0.035,
+                 f"{v:.3f}", ha="center", fontsize=7.4)
+    ax2.text(0.03, 0.97, "same source;\nnot independent", transform=ax2.transAxes,
+             fontsize=7.0, va="top", color="#444")
 
-    fig.savefig(FIG / "figure12_bounded_release_calculus.pdf", bbox_inches="tight")
-    fig.savefig(FIG / "figure12_bounded_release_calculus.svg", bbox_inches="tight")
-    fig.savefig(FIG / "figure12_bounded_release_calculus.png", dpi=220, bbox_inches="tight")
+    fig.savefig(FIG / "figure12_bounded_release_calculus.pdf")
+    fig.savefig(FIG / "figure12_bounded_release_calculus.svg")
+    fig.savefig(FIG / "figure12_bounded_release_calculus.png", dpi=300)
     plt.close(fig)
 
-    fig, ax = plt.subplots(figsize=(8.6, 4.8))
     groups = global_scale["groups"]
+
+    def group_label(name: str) -> str:
+        table, _, ratio = name.partition(" @ ")
+        return f"{table} / {ratio.replace('a/t=', 'a/t ')}"
+
+    fig, (axa, axb) = plt.subplots(1, 2, figsize=(5.43, 3.3), constrained_layout=True,
+                                   gridspec_kw={"width_ratios": [1.7, 1.0]})
     yy = np.arange(len(groups))
+    lo_g, hi_g = float(global_scale["global_lower"]), float(global_scale["global_upper"])
+    # The four intervals are about 0.005 MPa wide on a 190 MPa axis, so a length
+    # encoding collapses them to hairlines. Position is therefore drawn on a log
+    # axis and the interval extent is drawn separately in panel B.
+    axa.axvspan(hi_g, lo_g, color="#F3D2CE", alpha=0.75, zorder=0)
     for i, row in enumerate(groups):
-        ax.plot([row["lower"], row["upper"]], [i, i], lw=6, solid_capstyle="butt", color="#457B9D")
-        ax.plot([row["lower"], row["upper"]], [i, i], "|", ms=14, color="#1D3557")
-    ax.axvline(global_scale["global_lower"], ls="--", color="#E76F51", lw=1.5, label=f"global lower={global_scale['global_lower']:.2f}")
-    ax.axvline(global_scale["global_upper"], ls=":", color="#E76F51", lw=1.5, label=f"global upper={global_scale['global_upper']:.2f}")
-    ax.set_yticks(yy, [r["group"] for r in groups], fontsize=9)
-    ax.set_xlabel("positive scale interval at displayed half-unit (MPa per q-unit)")
-    ax.set_title("Global scale infeasibility is a result, not a disclaimer")
-    ax.grid(axis="x", alpha=0.22); ax.legend(fontsize=8, loc="lower right")
-    fig.tight_layout()
-    fig.savefig(FIG / "figure13_scale_nonidentification.pdf", bbox_inches="tight")
-    fig.savefig(FIG / "figure13_scale_nonidentification.svg", bbox_inches="tight")
-    fig.savefig(FIG / "figure13_scale_nonidentification.png", dpi=220, bbox_inches="tight")
+        axa.plot([row["lower"], row["upper"]], [i, i], lw=6, solid_capstyle="butt",
+                 color="#457B9D", zorder=3)
+        axa.plot([row["lower"]], [i], marker="|", ms=14, mew=1.4, color="#1D3557", zorder=4)
+        axa.text(row["upper"] * 1.08, i, f"{row['lower']:.3f} to {row['upper']:.3f}",
+                 va="center", ha="left", fontsize=7.0, color="#1D3557")
+    axa.axvline(lo_g, ls="--", color="#B23A48", lw=1.4,
+                label=f"required lower bound = {lo_g:.2f}")
+    axa.axvline(hi_g, ls=":", color="#B23A48", lw=1.4,
+                label=f"required upper bound = {hi_g:.2f}")
+    axa.set_xscale("log")
+    axa.set_xlim(56, 470)
+    # Label only chosen decades: the default sub-decade log minor labels collided.
+    axa.set_xticks([60, 80, 100, 150, 200, 300, 400])
+    axa.set_xticklabels(["60", "80", "100", "150", "200", "300", "400"])
+    axa.xaxis.set_minor_formatter(plt.NullFormatter())
+    axa.set_yticks(yy, [group_label(r["group"]) for r in groups], fontsize=7.6)
+    axa.set_ylim(-0.75, len(groups) - 0.25)
+    axa.set_xlabel("positive group scale $A_g$ (MPa per $q$-unit)", fontsize=7.6)
+    axa.tick_params(axis="x", labelsize=7.2)
+    axa.set_title("A  Groupwise intervals", loc="left", weight="bold", fontsize=8.2)
+    axa.grid(axis="x", alpha=0.22, which="both")
+    axa.legend(fontsize=7.0, loc="lower right", framealpha=0.95)
+    # No in-panel note: the caption already states that the two bounds are inverted and the
+    # band empty. The note used to be struck through by the global-upper dotted line.
+
+    widths = [float(r["width"]) for r in groups]
+    short = [group_label(r["group"]).replace("Table ", "T").replace(" / a/t ", "\n") for r in groups]
+    axb.bar(short, widths, color="#457B9D", edgecolor="#243447")
+    for i, w in enumerate(widths):
+        axb.text(i, w * 1.05, f"{w:.5f}", ha="center", fontsize=6.8)
+    axb.set_ylim(0, max(widths) * 1.32)
+    axb.set_ylabel("interval width (MPa per $q$-unit)", fontsize=7.6)
+    axb.set_xlabel("Zhang et al. table / $a/t$", fontsize=7.4)
+    axb.tick_params(axis="x", labelsize=6.8)
+    axb.tick_params(axis="y", labelsize=7.2)
+    axb.set_title("B  Widths are positive", loc="left", weight="bold", fontsize=8.2)
+    axb.grid(axis="y", alpha=0.25)
+    fig.savefig(FIG / "figure13_scale_nonidentification.pdf")
+    fig.savefig(FIG / "figure13_scale_nonidentification.svg")
+    fig.savefig(FIG / "figure13_scale_nonidentification.png", dpi=300)
     plt.close(fig)
 
 

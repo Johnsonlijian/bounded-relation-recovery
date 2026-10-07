@@ -244,7 +244,7 @@ knowledge_graph = {
             "scope": "source equation card only; no rerun of the report's FSM sections"
         },
         "human_engineer_review": "open",
-        "submission_state": "LOCAL_ONLY / NOT_SUBMITTED"
+        "submission_state": "SUBMITTED (2026-10-07)"
     },
     "evidence_classes": {
         "case_evidence": "Zhang et al. equations and public rounded tables",
@@ -393,7 +393,7 @@ summary = {
     "source_model_reconstruction": "pass_with_metadata_boundary: 630 rows; RMSE 0.532%; q95 1.320%; max 2.431%; E_eff=217400 MPa",
     "independent_ksce_spectrum_transfer": "pass_bounded_screen: 24 rows; RMSE 0.720%; q95 1.542%; max 1.620%; 10% predicate",
     "human_engineer_review": "open",
-    "submission_state": "LOCAL_ONLY / NOT_SUBMITTED",
+    "submission_state": "SUBMITTED (2026-10-07)",
 }
 (OUT / "result_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
 
@@ -471,7 +471,7 @@ sensitivity.sort_values("rank").to_csv(OUT / "candidate_sensitivity.csv", index=
 evidence_state = {
     "project": "AEI_KNOWLEDGE_ENGINEERING_REBUILD_2026-09-26",
     "revision_date": "2026-10-05",
-    "state": "LOCAL_ONLY / NOT_SUBMITTED",
+    "state": "SUBMITTED (2026-10-07)",
     "primary_claim": "A knowledge-constrained recovery protocol binds typed predicates, finite-precision evidence, provenance and bounded actions; the lipped-angle demonstration recovers one positive increasing shape within the declared permutation/sign class.",
     "evidence_classes": {
         "transcribed_public_equations_and_tables": "available",

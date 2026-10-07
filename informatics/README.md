@@ -11,6 +11,7 @@ The reducer emits three computational actions: `REJECT_NONEXECUTABLE`,
 is outside the computational closure. Native Zhang CUFSM files, third-party
 model files and the Uzer source spreadsheet are not redistributed.
 
-The package state is `LOCAL_ONLY / NOT_SUBMITTED`. See
+The manuscript this package supports was submitted on 2026-10-07 and is under
+editorial consideration. See
 `REPRODUCIBLE_RUNBOOK.md` for regeneration and `ACTION_TRACE_GUIDE.md` for
 the action and provenance fields.

@@ -31,6 +31,6 @@ retains.
 
 All source locators, hashes and redistribution limits remain in the local
 project registry. This artefact does not include active manuscript files,
-credentials or private raw data. `LOCAL_ONLY / NOT_SUBMITTED` remains the
-authoritative state until the author completes live journal, repository and
-independent engineering gates.
+credentials or private raw data. The manuscript was submitted on 2026-10-07 and
+this package is published; independent human engineering review remains an open
+gate.

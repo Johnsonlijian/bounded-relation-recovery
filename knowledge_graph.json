@@ -52,7 +52,7 @@
     "human_engineer_review": "author_self_review_completed_2026-10-06; no independent review claimed",
     "human_engineer_review_record": "evidence/human_engineering_signoff_2026-10-06.md",
     "bounded_cufsm_reconstruction": "available; 630 cells; RMSE 0.532%; metadata boundary",
-    "submission_state": "LOCAL_ONLY / NOT_SUBMITTED",
+    "submission_state": "SUBMITTED (2026-10-07)",
     "operational_use_gate": "open: independent source-model rerun + independent human engineering review",
     "second_object": {
       "source": "AISI RP23-01 (2023), Eq. (19)",

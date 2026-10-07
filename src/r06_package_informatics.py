@@ -86,7 +86,7 @@ def main() -> None:
     manifest = {
         "package": "INFORMATICS_ARTEFACT",
         "purpose": "Submission-facing informatics deliverable for Advanced Engineering Informatics",
-        "submission_state": "LOCAL_ONLY / NOT_SUBMITTED",
+        "submission_state": "SUBMITTED (2026-10-07)",
         "ontology_version": json.loads((PKG / "knowledge_graph.json").read_text(encoding="utf-8")).get(
             "ontology_version", "unknown"
         ),

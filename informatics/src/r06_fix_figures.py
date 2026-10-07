@@ -1,4 +1,4 @@
-﻿"""R06 figure corrections.
+"""R06 figure corrections.
 
 Three defects fixed here, all found by rendered inspection plus data reconciliation:
 
@@ -81,7 +81,7 @@ def figure_admissibility() -> None:
     replay = replay.rename(columns={"reconstructed_relative_error_pct": "err"})
     rebuild = rebuild.rename(columns={"relative_error_pct": "err"})
 
-    fig, axes = plt.subplots(1, 2, figsize=(7.4, 2.95), dpi=220, constrained_layout=True)
+    fig, axes = plt.subplots(1, 2, figsize=(5.43, 2.55), dpi=220, constrained_layout=True)
 
     # ---- panel (a): mechanics admissibility -----------------------------------------
     ax = axes[0]
@@ -89,22 +89,24 @@ def figure_admissibility() -> None:
     q_printed = lambda t: 0.292 - 1.060 * t**2 + 0.339 * t
     q_recovered = lambda t: 0.292 - 0.339 * t**2 + 1.060 * t
     ax.axhline(0, color="#a8a29e", lw=0.7)
-    ax.plot(x, q_printed(x), color=C_PRINT, lw=1.6, label="printed expression")
-    ax.plot(x, q_recovered(x), color=C_REC, lw=1.6, label="recovered assignment")
+    ax.plot(x, q_printed(x), color=C_PRINT, lw=1.4, label="printed expression")
+    ax.plot(x, q_recovered(x), color=C_REC, lw=1.4, label="recovered assignment")
     ax.fill_between(x, q_printed(x), 0, where=q_printed(x) < 0, color="#fecaca", alpha=0.5, lw=0)
     ax.annotate(f"{q_printed(1.1):.3f}", xy=(1.10, q_printed(1.1)), xytext=(1.13, -0.30),
-                fontsize=6.4, color=C_PRINT,
+                fontsize=6.6, color=C_PRINT,
                 arrowprops=dict(arrowstyle="-", color=C_PRINT, lw=0.5))
-    ax.annotate(f"{q_printed(1.5):.3f}", xy=(1.50, q_printed(1.5)), xytext=(1.30, -1.62),
-                fontsize=6.4, color=C_PRINT,
+    ax.annotate(f"{q_printed(1.5):.3f}", xy=(1.50, q_printed(1.5)), xytext=(1.30, -0.62),
+                fontsize=6.6, color=C_PRINT,
                 arrowprops=dict(arrowstyle="-", color=C_PRINT, lw=0.5))
     ax.set_xlim(1.1, 1.5)
     ax.set_ylim(-1.75, 1.35)
-    ax.set_xlabel("limb ratio $x=a/b$")
-    ax.set_ylabel("shape $q(x)$")
-    ax.set_title("(a) mechanics admissibility", fontsize=8.6)
-    ax.legend(frameon=False, loc="lower left", fontsize=6.6)
-    ax.tick_params(labelsize=7)
+    ax.set_xlabel("limb ratio $x=a/b$", fontsize=6.8)
+    ax.set_ylabel("shape $q(x)$", fontsize=6.8)
+    ax.set_title("(a) mechanics admissibility", fontsize=7.2)
+    # Legend sits in the empty band between the zero line and the recovered curve; at
+    # the lower left the printed curve ran straight through the label text.
+    ax.legend(frameon=False, loc="upper left", bbox_to_anchor=(0.02, 0.87), fontsize=6.8)
+    ax.tick_params(labelsize=6.8)
 
     # ---- panel (b): the 630-cell check, both routes ----------------------------------
     ax = axes[1]
@@ -112,21 +114,26 @@ def figure_admissibility() -> None:
     for y in (SCREEN_PCT, -SCREEN_PCT):
         ax.axhline(y, color="#78716c", lw=0.8, ls="--", zorder=1)
     ax.axhline(0, color="#a8a29e", lw=0.6, zorder=1)
-    ax.scatter(replay["a_over_b"], replay["err"], s=4.5, marker="o", linewidths=0,
+    rng = np.random.default_rng(20261006)
+    ax.scatter(replay["a_over_b"] + rng.uniform(-0.012, 0.012, len(replay)), replay["err"],
+               s=3.5, marker="o", linewidths=0,
                color=C_REPLAY, alpha=0.55, zorder=2,
-               label=f"table replay (cell RMSE 0.923 / 0.354 %)".replace("%", r"\%"))
-    ax.scatter(rebuild["a_over_b"], rebuild["err"], s=4.5, marker="s", linewidths=0,
+               label="table replay (0.923 / 0.354 %)")
+    ax.scatter(rebuild["a_over_b"] + rng.uniform(-0.012, 0.012, len(rebuild)), rebuild["err"],
+               s=3.5, marker="s", linewidths=0,
                color=C_REBUILD, alpha=0.55, zorder=3,
-               label="independent geometry rebuild (0.532 % overall)".replace("%", r"\%"))
-    ax.set_xlim(1.05, 4.05)
-    ax.set_ylim(-SCREEN_PCT - 0.6, SCREEN_PCT + 0.6)
-    ax.set_xlabel("limb ratio $a/b$")
-    ax.set_ylabel("relative error (%)")
-    ax.set_title("(b) held-out 630-cell check", fontsize=8.6)
-    ax.text(0.985, 0.055, "dashed: predeclared 5 % screen", transform=ax.transAxes,
-            ha="right", va="bottom", fontsize=6.2, color="#57534e")
-    ax.legend(frameon=False, loc="upper right", fontsize=6.2, handletextpad=0.3)
-    ax.tick_params(labelsize=7)
+               label="geometry rebuild (0.532 %)")
+    ax.set_xlim(1.04, 1.56)
+    # Headroom above and below the 5 % screen lines: the legend and the screen note used
+    # to be struck through by the dashed lines themselves.
+    ax.set_ylim(-SCREEN_PCT - 2.6, SCREEN_PCT + 2.6)
+    ax.set_xlabel("limb ratio $x=a/b$", fontsize=6.8)
+    ax.set_ylabel("relative error (%)", fontsize=6.8)
+    ax.set_title("(b) held-out 630-cell check", fontsize=7.2)
+    ax.text(0.985, 0.03, "dashed: 5 % screen", transform=ax.transAxes,
+            ha="right", va="bottom", fontsize=6.6, color="#57534e")
+    ax.legend(frameon=False, loc="upper right", fontsize=6.6, handletextpad=0.3, borderpad=0.1)
+    ax.tick_params(labelsize=6.8)
 
     _save(fig, "figure2_admissibility_and_replay", also_manuscript=True)
 
@@ -152,36 +159,40 @@ def _arrow(ax, p0, p1, text=None, color="#57534e", dx=0.0, dy=0.11):
                                  linewidth=0.9, color=color, shrinkA=4, shrinkB=4))
     if text:
         ax.text((p0[0] + p1[0]) / 2 + dx, (p0[1] + p1[1]) / 2 + dy, text,
-                ha="center", va="bottom", fontsize=6.8, color=color)
+                ha="center", va="bottom", fontsize=5.9, color=color)
 
 
 def figure_state_machine() -> None:
     fig, ax = plt.subplots(figsize=(7.2, 4.5))
-    ax.set_xlim(0, 10)
+    ax.set_xlim(-0.5, 10.8)
     ax.set_ylim(-0.55, 6.25)
     ax.axis("off")
 
-    start = _box(ax, (1.25, 5.35), "Typed run\nobject + relation", "#f5f5f4", 1.95, 0.8)
-    mech = _box(ax, (3.6, 5.35), "Mechanics predicates\npositivity / finiteness / trend", "#dbeafe")
-    reject = _box(ax, (7.9, 5.35), "reject\nnon-executable", "#fee2e2")
-    evid = _box(ax, (3.6, 3.75), "Evidence predicates\ninterval (Eq. 1) + coverage", "#e0f2fe")
-    retain = _box(ax, (7.9, 3.75), "retain\nbounded claim", "#ffedd5")
-    prov = _box(ax, (3.6, 2.15), "Provenance contract\nsource + selector named", "#ede9fe")
-    query = _box(ax, (7.9, 2.15), "allow\nbounded query", "#dcfce7")
-    ops = _box(ax, (3.6, 0.5), "Operational gates\nindependent source rerun\n+ human review", "#f5f5f4",
+    start = _box(ax, (1.15, 5.35), "Typed run\nobject + relation", "#f5f5f4", 1.95, 0.8)
+    mech = _box(ax, (3.95, 5.35), "Mechanics predicates\npositivity / finiteness / trend", "#dbeafe")
+    reject = _box(ax, (8.6, 5.35), "reject\nnon-executable", "#fee2e2")
+    evid = _box(ax, (3.95, 3.75), "Evidence predicates\ninterval (Eq. 1) + coverage", "#e0f2fe")
+    retain = _box(ax, (8.6, 3.75), "retain\nbounded claim", "#ffedd5")
+    prov = _box(ax, (3.95, 2.15), "Provenance contract\nsource + selector named", "#ede9fe")
+    query = _box(ax, (8.6, 2.15), "allow\nbounded query", "#dcfce7")
+    ops = _box(ax, (3.95, 0.5), "Operational gates\nindependent source rerun\n+ human review", "#f5f5f4",
                2.6, 1.0, fontsize=7.6)
-    blocked = _box(ax, (7.9, 0.5), "operational use\nnot granted here", "#e7e5e4")
+    blocked = _box(ax, (8.6, 0.5), "operational use\nnot granted here", "#e7e5e4")
 
     _arrow(ax, (start[0] + start[2] / 2, start[1]), (mech[0] - mech[2] / 2, mech[1]))
     _arrow(ax, (mech[0] + mech[2] / 2, mech[1]), (reject[0] - reject[2] / 2, reject[1]),
-           "positivity or finiteness fails")
-    _arrow(ax, (mech[0], mech[1] - mech[3] / 2), (evid[0], evid[1] + evid[3] / 2), "otherwise")
+           "fail", dy=0.03)
+    _arrow(ax, (mech[0], mech[1] - mech[3] / 2), (evid[0], evid[1] + evid[3] / 2))
+    ax.text(mech[0] + 0.10, (mech[1] - mech[3] / 2 + evid[1] + evid[3] / 2) / 2, "pass",
+            ha="left", va="center", fontsize=6.2, color="#57534e")
     _arrow(ax, (evid[0] + evid[2] / 2, evid[1]), (retain[0] - retain[2] / 2, retain[1]),
-           "Eq. 1 fails / open")
-    _arrow(ax, (evid[0], evid[1] - evid[3] / 2), (prov[0], prov[1] + prov[3] / 2), "otherwise")
+           "fail / open", dy=0.03)
+    _arrow(ax, (evid[0], evid[1] - evid[3] / 2), (prov[0], prov[1] + prov[3] / 2))
+    ax.text(evid[0] + 0.10, (evid[1] - evid[3] / 2 + prov[1] + prov[3] / 2) / 2, "pass",
+            ha="left", va="center", fontsize=6.2, color="#57534e")
     _arrow(ax, (prov[0] + prov[2] / 2, prov[1]), (query[0] - query[2] / 2, query[1]), "complete")
     _arrow(ax, (prov[0] - prov[2] / 2, prov[1] + 0.18), (retain[0] - retain[2] / 2, retain[1] - 0.18),
-           "selector unreproduced", dx=0.55, dy=0.0)
+           "selector mismatch", dx=0.0, dy=0.06)
     _arrow(ax, (query[0], query[1] - query[3] / 2), (ops[0] + ops[2] / 2, ops[1] + 0.28))
     _arrow(ax, (ops[0] + ops[2] / 2, ops[1] - 0.28), (blocked[0] - blocked[2] / 2, blocked[1]),
            "open")

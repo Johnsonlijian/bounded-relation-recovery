@@ -80,7 +80,7 @@ def main() -> None:
     readme.write_text(
         """# AEI Knowledge Engineering Rebuild - R11 final-check candidate
 
-State: LOCAL_ONLY / NOT_SUBMITTED / HUMAN_ENGINEERING_GATE_OPEN
+State: SUBMITTED (2026-10-07) / HUMAN_ENGINEERING_GATE_OPEN
 
 This candidate is the post-check revision of the bounded-release calculus paper.
 The check round changed only presentation, attribution and figure engineering; no

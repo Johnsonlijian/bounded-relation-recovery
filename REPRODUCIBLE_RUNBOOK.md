@@ -1,72 +1,79 @@
-# Reproducible runbook — R10 bounded-release calculus (7 October 2026)
+# Reproducible runbook — protocol-centered local candidate (2026-10-04)
 
 ## Scope
 
-Regenerates the typed knowledge graph, action trace, query examples, protocol controls, bounded Zhang reconstruction summaries, selector transfer records, the geotechnical direct-response case and R10 bounded-release controls from public table transcriptions and documented source manifests. No original Zhang CUFSM model files or Uzer spreadsheet are included.
+This runbook regenerates the knowledge graph, the 48-candidate search, interval margins, public-table replay summaries, query trace, residual diagnostics, protocol stress tests, public-solver transfer evidence and all seven vector figures, the bounded 630-cell Zhang source-model reconstruction and the independent KSCE spectrum-transfer screen from the included public-table transcriptions and the separately sourced CUFSM example manifest. The public-solver transfer check does not rerun the Zhang et al. models and does not establish cross-object relation recovery.
 
 ## Environment
 
-- Python 3.11+
-- NumPy, pandas, Matplotlib, pypdf
-- GNU Octave only for optional CUFSM reconstruction / RP23-01 reruns
-- LaTeX with `elsarticle` for manuscript PDFs
+- Python 3.11.15
+- NumPy 2.2.6
+- pandas 2.3.3
+- Matplotlib 3.11.0 (the script uses the `tick_labels` keyword for the installed Matplotlib API)
+- GNU Octave 10.2.0 (used only for the documented public-CUFSM compatibility rerun)
+- LaTeX with `elsarticle`, `lmodern`, `amsmath`, `booktabs`, `tabularx`, `graphicx`, `microtype`, `xurl` and `hyperref`
 
-## Core run (Python)
+The versions above were recorded from the active Windows environment on 2026-10-03. They identify the local regeneration environment; they do not certify cross-platform or independent CUFSM equivalence.
 
-From the project root:
+Record exact package versions and the operating system in a dated run log before a release candidate is frozen.
+
+## Clean regeneration
+
+From this project root:
 
 ```powershell
 python src/analyze_rebuild.py
 python src/r02_protocol_stress_tests.py
-python src/r02_external_relation_transfer.py
-python src/r04_sr_baseline.py
-python src/r04_dsm_demo.py
-python src/r06_action_state_machine.py
-python src/r07_compression_index_case.py
-python src/r06_extend_artefact.py
-python src/r09_augment_geotechnical_graph.py
-python src/r10_super_uplift_evidence.py
-python src/r06_package_informatics.py
-python -m brr.evaluate --self-test
-```
-
-Expected headline records:
-
-- angle candidate class: 48; retained relation `+0.292 -0.339 x^2 +1.060 x`; required half-width `0.003127740 MPa`;
-- Zhang public held-out replay: 630 cells; bounded reconstruction RMSE `0.532%` under the frozen modulus contract;
-- geotechnical table: 445 admissible cells, 9 attributed correlations, `2 REJECT_NONEXECUTABLE`, `7 RETAIN_BOUNDED_CLAIM`;
-- action algebra: one reducer in `src/brr/actions.py` for all cases.
-- R10 controls: three deterministic actions, monotone blocking pass, false global-scale feasibility, two same-source transfer rows, and no emitted operational action.
-
-## Extended structural evidence (optional Octave)
-
-```powershell
 python src/r02_cufsm_transfer.py
+python src/r02_external_relation_transfer.py
 python src/r03_zhang_model_reconstruction.py summarize
 python src/r03_ksce_spectrum_transfer.py
-python src/r04_rp23001_rebuild.py
-python src/r05_figures.py
 ```
 
-These steps do not close the native-source-model or human-engineering gates.
+Expected regenerated files include:
 
-## LaTeX
+- `knowledge_graph.json`
+- `outputs/result_summary.json`
+- `outputs/evidence_state.json`
+- `outputs/design_query_examples.csv`
+- `outputs/knowledge_trace.csv`
+- `outputs/candidate_sensitivity.csv`
+- `outputs/replay_residual_summary.csv`
+- `outputs/candidate_search_48_recomputed.csv`
+- `outputs/identification_margin_recomputed.csv`
+- `outputs/full_cufsm_replay_recomputed.csv`
+- `outputs/full_cufsm_group_replay_recomputed.csv`
+- `outputs/r02_failure_injection_results.csv`
+- `outputs/r02_case_sensitivity_and_ablation.csv`
+- `outputs/r02_digit_perturbation_trials.csv`
+- `outputs/r02_evidence_manifest.csv`
+- `outputs/r02_protocol_validation_summary.json`
+- `outputs/r02_cufsm_transfer_curve.csv`
+- `outputs/r02_cufsm_transfer_summary.json`
+- `outputs/r02_cufsm_public_source_manifest.json`
+- `outputs/r02_external_relation_transfer.csv`
+- `outputs/r02_external_relation_transfer_summary.json`
+- `figures/figure1_knowledge_to_action.{svg,pdf,png}`
+- `figures/figure2_admissibility_and_replay.{svg,pdf,png}`
+- `figures/figure3_full_table_shape_replay.{svg,pdf,png}`
+- `figures/figure4_replay_error_boundary.{svg,pdf,png}`
+- `figures/figure5_protocol_stress_tests.{svg,pdf,png}`
+- `figures/figure6_public_cufsm_transfer.{svg,pdf,png}`
+- `figures/figure7_external_relation_transfer.{svg,pdf,png}`
+
+The analysis script reads only `data/source_table_transcription.csv` and `data/full_cufsm_cells.csv` for the lipped-angle numerical recomputation. The R02 stress-test script generates a known-form control, 15 injected cases, 200 deterministic perturbations, leave-source subsets and a predicate ablation. The public-solver transfer script compares the public repository example `cnolip_P.mat` with the documented rerun when the non-redistributed local input and rerun MAT files are present; the source manifest records the repository commit and hashes, while the derived curve and summary are included in the package. The external relation script evaluates the AISI RP23-01 relation card from the locally held source PDF; it tests object and predicate transfer but does not rerun the report's FSM sections. The R03 source-model reconstruction uses the four local Octave chunk runs in `external_sources/zhang_reconstruction/r03_zhang_cufsm_run.m` and then `python src/r03_zhang_model_reconstruction.py summarize`; its frozen `E_eff`, mesh and wavelength contract are recorded in `external_sources/zhang_reconstruction/r03_reconstruction_provenance.json`. The KSCE screen runs `external_sources/zhang_reconstruction/r03_ksce_spectrum_transfer.m` and is summarized by `python src/r03_ksce_spectrum_transfer.py`. The lipped-angle winner should remain `+0.292 -0.339 x^2 +1.060 x`; the displayed half-unit is `0.005 MPa`; the required common half-width is approximately `0.003127740 MPa`.
+
+## LaTeX build and visual QA
+
+From `manuscript`:
 
 ```powershell
-cd manuscript
-pdflatex -interaction=nonstopmode main.tex
-bibtex main
-pdflatex -interaction=nonstopmode main.tex
-pdflatex -interaction=nonstopmode main.tex
-pdflatex -interaction=nonstopmode supplement.tex
-bibtex supplement
-pdflatex -interaction=nonstopmode supplement.tex
-pdflatex -interaction=nonstopmode supplement.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error supplement.tex
 ```
+
+Inspect the PDF page count, embedded fonts, equation references, figure labels and captions, and render every page to PNG before delivery. Synchronise only verified source/PDF/figure outputs into `submission` and `FINAL_SUBMISSION_PACKAGE_2026-09-26`.
 
 ## Evidence boundary
 
-`LOCAL_ONLY / NOT_SUBMITTED / HUMAN_ENGINEERING_GATE_OPEN`. Any public
-GitHub/Zenodo record preceding this R10 candidate must be refreshed and
-reviewed before external upload. The runbook is a regeneration contract, not
-an editorial receipt or engineering approval.
+The manuscript was submitted on 2026-10-07 and the curated package is published; this working area is not itself a release artefact. Native Zhang et al. CUFSM files and the source batch modulus remain unavailable; the bounded independent reconstruction closes only the published Table 4/Table 8 geometry-to-response scope under its frozen metadata contract. The KSCE screen is a nearest-spectrum transfer check rather than mode-selector recovery. Independent human engineer review, live journal instructions, licensing and repository metadata remain open gates. No file in this runbook is an upload receipt or editorial decision.

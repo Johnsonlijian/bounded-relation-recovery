@@ -12,7 +12,7 @@ The CSV files in this directory are **transcriptions and derived inputs**, not t
 
 A clean run starts from the two public-table transcriptions. `src/analyze_rebuild.py` recomputes the candidate enumeration and 630-cell replay directly from those two files; the other search and replay CSVs are retained audit references and comparison fixtures. The source article reports CUFSM5 calculations, but the native model files are not present here; therefore the outputs are a public-table replay. Do not cite these CSVs as an independent finite-strip simulation.
 
-The input records preserve the source DOI and page/table locators. R02 method-control and public-solver transfer outputs are derived artifacts; the public CUFSM example input and rerun MAT file remain in the local external-source area and are not redistributed. Before external release, check licensing and repository policy; this local folder remains `LOCAL_ONLY / NOT_SUBMITTED`.
+The input records preserve the source DOI and page/table locators. R02 method-control and public-solver transfer outputs are derived artifacts; the public CUFSM example input and rerun MAT file remain in the local external-source area and are not redistributed. Licensing and repository policy are recorded per item in `DATASETS_AND_LINKS.csv`; the published repository is the curated release, not this working folder.
 
 
 ## R03 source-model recreation and independent case transfer
