@@ -1,7 +1,7 @@
-cff-version: 1.2.0
+﻿cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: "Bounded relation recovery for legacy engineering knowledge"
-version: 0.1.0
+title: "Bounded relation recovery: an auditable action contract"
+version: 0.2.0
 date-released: 2026-10-06
 authors:
   - family-names: Ren
@@ -14,4 +14,9 @@ keywords:
   - engineering informatics
   - knowledge representation
   - interval analysis
+  - provenance
   - reproducibility
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23190093
+    description: Reproducibility package archive

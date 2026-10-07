@@ -1,6 +1,6 @@
 {
-  "ontology_version": "1.2",
-  "scope": "knowledge-constrained recovery protocol demonstrated on an axial local-buckling relation for unequal-limb lipped-angle sections",
+  "ontology_version": "1.3",
+  "scope": "knowledge-constrained recovery protocol demonstrated on two published cold-formed steel relations: an axial local-buckling relation for unequal-limb lipped-angle sections, and a gross-section local-buckling coefficient equation for lipped channels",
   "provenance": {
     "source_record": "Zhang et al. (2022), Buildings 12, 712",
     "source_doi": "10.3390/buildings12060712",
@@ -49,8 +49,23 @@
       "global_increasing_predicate": "not satisfied; relation-specific predicate map retained",
       "scope": "source equation card only; no rerun of the report's FSM sections"
     },
-    "human_engineer_review": "open",
-    "submission_state": "LOCAL_ONLY / NOT_SUBMITTED"
+    "human_engineer_review": "author_self_review_completed_2026-10-06; no independent review claimed",
+    "human_engineer_review_record": "evidence/human_engineering_signoff_2026-10-06.md",
+    "bounded_cufsm_reconstruction": "available; 630 cells; RMSE 0.532%; metadata boundary",
+    "submission_state": "LOCAL_ONLY / NOT_SUBMITTED",
+    "operational_use_gate": "open: independent source-model rerun + independent human engineering review",
+    "second_object": {
+      "source": "AISI RP23-01 (2023), Eq. (19)",
+      "sample": "15 sharp-corner centreline sections generated inside the declared ratio domain; not the report's 1228-section library",
+      "selectors_tested": [
+        "sharp-corner signature minimum",
+        "round corner r = 2.5t",
+        "pure-local constrained basis",
+        "element baseline k = 4"
+      ],
+      "action": "retain_bounded_claim",
+      "boundary": "source equation card and independent sample only; the report's FSM study is not rerun"
+    }
   },
   "evidence_classes": {
     "case_evidence": "Zhang et al. equations and public rounded tables",
@@ -63,7 +78,10 @@
     "failure_gate_pass_fraction": 1.0,
     "digit_perturbation_trials": 200,
     "target_winner_perturbation_fraction": 1.0,
-    "predicate_ablation": "monotonicity removal increases mechanically admissible candidates from 20 to 22"
+    "predicate_ablation": "monotonicity removal increases mechanically admissible candidates from 20 to 22",
+    "clean_positive_control_rows": 1,
+    "method_control_rows_total": 16,
+    "note": "the 16-row control table is 15 predeclared failure or coverage cases plus 1 clean positive control"
   },
   "nodes": [
     {
@@ -146,6 +164,57 @@
         "allow_bounded_query",
         "allow_operational_use"
       ]
+    },
+    {
+      "id": "LippedChannel",
+      "kind": "engineering_object",
+      "attributes": [
+        "h",
+        "b",
+        "D",
+        "t"
+      ]
+    },
+    {
+      "id": "WebToFlangeRatio",
+      "kind": "dimensionless_state",
+      "definition": "eta = h/b",
+      "domain": [
+        1.2,
+        22.0
+      ]
+    },
+    {
+      "id": "LocalBucklingCoefficient",
+      "kind": "response",
+      "definition": "k_w",
+      "unit": "-"
+    },
+    {
+      "id": "ChannelRelation",
+      "kind": "candidate_relation",
+      "definition": "k_w(eta) = 4 + 24 eta/(20 + 4.4 eta + eta^2)",
+      "source": "AISI RP23-01 (2023), Eq. (19), printed page 12"
+    },
+    {
+      "id": "SignatureCurveMinimum",
+      "kind": "selector",
+      "definition": "lowest eigenvalue of the signature curve"
+    },
+    {
+      "id": "RoundCornerSample",
+      "kind": "selector",
+      "definition": "centreline corner radius r = 2.5t"
+    },
+    {
+      "id": "PureLocalConstraint",
+      "kind": "selector",
+      "definition": "constrained local basis (GBTcon.local = 1)"
+    },
+    {
+      "id": "ElementBaseline",
+      "kind": "baseline",
+      "definition": "element-method value k = 4"
     }
   ],
   "relations": [
@@ -213,6 +282,46 @@
       "CriticalStress",
       "supports",
       "DesignAction"
+    ],
+    [
+      "LippedChannel",
+      "defines",
+      "WebToFlangeRatio"
+    ],
+    [
+      "WebToFlangeRatio",
+      "enters",
+      "ChannelRelation"
+    ],
+    [
+      "ChannelRelation",
+      "predicts",
+      "LocalBucklingCoefficient"
+    ],
+    [
+      "SignatureCurveMinimum",
+      "selects",
+      "LocalBucklingCoefficient"
+    ],
+    [
+      "RoundCornerSample",
+      "selects",
+      "LocalBucklingCoefficient"
+    ],
+    [
+      "PureLocalConstraint",
+      "selects",
+      "LocalBucklingCoefficient"
+    ],
+    [
+      "ElementBaseline",
+      "competes_with",
+      "ChannelRelation"
+    ],
+    [
+      "LocalBucklingCoefficient",
+      "supports",
+      "DesignAction"
     ]
   ],
   "rules": [
@@ -255,6 +364,316 @@
       "id": "R8",
       "if": "independent source spectrum screen passes under a declared predicate",
       "then": "retain_bounded_transfer_evidence; do not promote to universal recovery"
+    },
+    {
+      "id": "R9",
+      "if": "ChannelRelation passes positivity and finiteness, but the mode selector or the corner idealisation named with the equation is not reproduced",
+      "then": "retain_bounded_claim; the query is withheld"
+    },
+    {
+      "id": "R10",
+      "if": "an independent sharp-corner sample moves the comparison against the element baseline k = 4 at high eta",
+      "then": "do not allow a bounded query at those ratios"
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "angle_local_buckling",
+      "object": "UnequalLimbLippedAngle",
+      "state": "LimbRatio",
+      "response": "CriticalStress",
+      "relation": {
+        "id": "RecoveredAngleAssignment",
+        "form": "q(x) = 0.292 - 0.339 x^2 + 1.060 x, x = a/b",
+        "candidate_class": "48 = 3! orderings x 2**3 signs of the printed magnitudes",
+        "domain": [
+          1.1,
+          1.5
+        ]
+      },
+      "predicates": {
+        "mechanics.positivity": true,
+        "mechanics.finiteness": true,
+        "mechanics.monotonicity": true,
+        "evidence.interval_feasibility": true,
+        "evidence.coverage": true,
+        "provenance.source_verified": true
+      },
+      "evidence": {
+        "identification_cells": 20,
+        "held_out_cells": 630,
+        "groups": 126,
+        "displayed_half_unit_mpa": 0.005,
+        "required_half_width_mpa": {
+          "Table 5@a/t=70": 0.001114967,
+          "Table 5@a/t=110": 0.00136969,
+          "Table 9@a/t=70": 0.002371905,
+          "Table 9@a/t=110": 0.00312774
+        },
+        "binding_group": "Table 9@a/t=110"
+      },
+      "action": "allow_bounded_query",
+      "scope": "1.1 <= a/b <= 1.5 within the transcribed public-table scope",
+      "not_claimed": [
+        "operational member design",
+        "equal-leg sections",
+        "the authors' native model files"
+      ]
+    },
+    {
+      "run_id": "channel_gross_section_compression",
+      "object": "LippedChannel",
+      "state": "WebToFlangeRatio",
+      "response": "LocalBucklingCoefficient",
+      "relation": {
+        "id": "ChannelRelation",
+        "form": "k_w(eta) = 4 + 24 eta/(20 + 4.4 eta + eta^2)",
+        "candidate_class": "published closed form; not re-fitted",
+        "domain": [
+          1.2,
+          22.0
+        ]
+      },
+      "predicates": {
+        "mechanics.positivity": true,
+        "mechanics.finiteness": true,
+        "mechanics.monotonicity": "declared inapplicable (turning point at eta = sqrt(20))",
+        "evidence.interval_feasibility": true,
+        "evidence.coverage": "independent sample generated inside the declared domain",
+        "provenance.source_verified": true
+      },
+      "evidence": {
+        "sharp_corner_sections": 15,
+        "within_10pct_screen": 12,
+        "max_abs_deviation_pct": 14.7952,
+        "round_corner_r_2p5t_within_screen": 14,
+        "pure_local_ratio_range": [
+          1.1036864,
+          1.33063439
+        ],
+        "equation_closer_than_k4_of": [
+          13,
+          15
+        ],
+        "rows": [
+          {
+            "relation": "AISI RP23-01 Eq. (19)",
+            "eta": 1.2,
+            "D_over_B": 0.1,
+            "selector": "sharp-corner signature minimum",
+            "k_fsm": 4.83458,
+            "k_equation": 5.07784,
+            "deviation_from_equation_pct": 4.7906,
+            "deviation_from_k4_pct": 20.8645,
+            "closer": "equation",
+            "within_10pct_screen": true,
+            "action": "retain_bounded_claim",
+            "reason": "mode contract and corner idealisation not reproduced"
+          },
+          {
+            "relation": "AISI RP23-01 Eq. (19)",
+            "eta": 1.2,
+            "D_over_B": 0.25,
+            "selector": "sharp-corner signature minimum",
+            "k_fsm": 4.86893,
+            "k_equation": 5.07784,
+            "deviation_from_equation_pct": 4.1142,
+            "deviation_from_k4_pct": 21.7232,
+            "closer": "equation",
+            "within_10pct_screen": true,
+            "action": "retain_bounded_claim",
+            "reason": "mode contract and corner idealisation not reproduced"
+          },
+          {
+            "relation": "AISI RP23-01 Eq. (19)",
+            "eta": 1.2,
+            "D_over_B": 0.4,
+            "selector": "sharp-corner signature minimum",
+            "k_fsm": 4.7861,
+            "k_equation": 5.07784,
+            "deviation_from_equation_pct": 5.7454,
+            "deviation_from_k4_pct": 19.6525,
+            "closer": "equation",
+            "within_10pct_screen": true,
+            "action": "retain_bounded_claim",
+            "reason": "mode contract and corner idealisation not reproduced"
+          },
+          {
+            "relation": "AISI RP23-01 Eq. (19)",
+            "eta": 2.2,
+            "D_over_B": 0.1,
+            "selector": "sharp-corner signature minimum",
+            "k_fsm": 5.46873,
+            "k_equation": 5.52955,
+            "deviation_from_equation_pct": 1.0999,
+            "deviation_from_k4_pct": 36.7182,
+            "closer": "equation",
+            "within_10pct_screen": true,
+            "action": "retain_bounded_claim",
+            "reason": "mode contract and corner idealisation not reproduced"
+          },
+          {
+            "relation": "AISI RP23-01 Eq. (19)",
+            "eta": 2.2,
+            "D_over_B": 0.25,
+            "selector": "sharp-corner signature minimum",
+            "k_fsm": 5.49384,
+            "k_equation": 5.52955,
+            "deviation_from_equation_pct": 0.6458,
+            "deviation_from_k4_pct": 37.346,
+            "closer": "equation",
+            "within_10pct_screen": true,
+            "action": "retain_bounded_claim",
+            "reason": "mode contract and corner idealisation not reproduced"
+          },
+          {
+            "relation": "AISI RP23-01 Eq. (19)",
+            "eta": 2.2,
+            "D_over_B": 0.4,
+            "selector": "sharp-corner signature minimum",
+            "k_fsm": 5.49885,
+            "k_equation": 5.52955,
+            "deviation_from_equation_pct": 0.5552,
+            "deviation_from_k4_pct": 37.4712,
+            "closer": "equation",
+            "within_10pct_screen": true,
+            "action": "retain_bounded_claim",
+            "reason": "mode contract and corner idealisation not reproduced"
+          },
+          {
+            "relation": "AISI RP23-01 Eq. (19)",
+            "eta": 4.47214,
+            "D_over_B": 0.1,
+            "selector": "sharp-corner signature minimum",
+            "k_fsm": 5.53328,
+            "k_equation": 5.79852,
+            "deviation_from_equation_pct": 4.5743,
+            "deviation_from_k4_pct": 38.332,
+            "closer": "equation",
+            "within_10pct_screen": true,
+            "action": "retain_bounded_claim",
+            "reason": "mode contract and corner idealisation not reproduced"
+          },
+          {
+            "relation": "AISI RP23-01 Eq. (19)",
+            "eta": 4.47214,
+            "D_over_B": 0.25,
+            "selector": "sharp-corner signature minimum",
+            "k_fsm": 5.84223,
+            "k_equation": 5.79852,
+            "deviation_from_equation_pct": 0.7538,
+            "deviation_from_k4_pct": 46.0557,
+            "closer": "equation",
+            "within_10pct_screen": true,
+            "action": "retain_bounded_claim",
+            "reason": "mode contract and corner idealisation not reproduced"
+          },
+          {
+            "relation": "AISI RP23-01 Eq. (19)",
+            "eta": 4.47214,
+            "D_over_B": 0.4,
+            "selector": "sharp-corner signature minimum",
+            "k_fsm": 5.86937,
+            "k_equation": 5.79852,
+            "deviation_from_equation_pct": 1.2219,
+            "deviation_from_k4_pct": 46.7343,
+            "closer": "equation",
+            "within_10pct_screen": true,
+            "action": "retain_bounded_claim",
+            "reason": "mode contract and corner idealisation not reproduced"
+          },
+          {
+            "relation": "AISI RP23-01 Eq. (19)",
+            "eta": 8.0,
+            "D_over_B": 0.25,
+            "selector": "sharp-corner signature minimum",
+            "k_fsm": 5.51689,
+            "k_equation": 5.61074,
+            "deviation_from_equation_pct": 1.6727,
+            "deviation_from_k4_pct": 37.9223,
+            "closer": "equation",
+            "within_10pct_screen": true,
+            "action": "retain_bounded_claim",
+            "reason": "mode contract and corner idealisation not reproduced"
+          },
+          {
+            "relation": "AISI RP23-01 Eq. (19)",
+            "eta": 8.0,
+            "D_over_B": 0.4,
+            "selector": "sharp-corner signature minimum",
+            "k_fsm": 5.97755,
+            "k_equation": 5.61074,
+            "deviation_from_equation_pct": 6.5376,
+            "deviation_from_k4_pct": 49.4387,
+            "closer": "equation",
+            "within_10pct_screen": true,
+            "action": "retain_bounded_claim",
+            "reason": "mode contract and corner idealisation not reproduced"
+          },
+          {
+            "relation": "AISI RP23-01 Eq. (19)",
+            "eta": 12.0,
+            "D_over_B": 0.25,
+            "selector": "sharp-corner signature minimum",
+            "k_fsm": 4.57837,
+            "k_equation": 5.32841,
+            "deviation_from_equation_pct": 14.0762,
+            "deviation_from_k4_pct": 14.4592,
+            "closer": "equation",
+            "within_10pct_screen": false,
+            "action": "retain_bounded_claim",
+            "reason": "mode contract and corner idealisation not reproduced"
+          },
+          {
+            "relation": "AISI RP23-01 Eq. (19)",
+            "eta": 12.0,
+            "D_over_B": 0.4,
+            "selector": "sharp-corner signature minimum",
+            "k_fsm": 4.97123,
+            "k_equation": 5.32841,
+            "deviation_from_equation_pct": 6.7033,
+            "deviation_from_k4_pct": 24.2808,
+            "closer": "equation",
+            "within_10pct_screen": true,
+            "action": "retain_bounded_claim",
+            "reason": "mode contract and corner idealisation not reproduced"
+          },
+          {
+            "relation": "AISI RP23-01 Eq. (19)",
+            "eta": 16.0,
+            "D_over_B": 0.4,
+            "selector": "sharp-corner signature minimum",
+            "k_fsm": 4.42095,
+            "k_equation": 5.10855,
+            "deviation_from_equation_pct": 13.4598,
+            "deviation_from_k4_pct": 10.5238,
+            "closer": "k4",
+            "within_10pct_screen": false,
+            "action": "retain_bounded_claim",
+            "reason": "mode contract and corner idealisation not reproduced"
+          },
+          {
+            "relation": "AISI RP23-01 Eq. (19)",
+            "eta": 20.0,
+            "D_over_B": 0.4,
+            "selector": "sharp-corner signature minimum",
+            "k_fsm": 4.21327,
+            "k_equation": 4.94488,
+            "deviation_from_equation_pct": 14.7953,
+            "deviation_from_k4_pct": 5.3317,
+            "closer": "k4",
+            "within_10pct_screen": false,
+            "action": "retain_bounded_claim",
+            "reason": "mode contract and corner idealisation not reproduced"
+          }
+        ]
+      },
+      "action": "retain_bounded_claim",
+      "scope": "declared ratio domain only; the equation may not be queried until the mode contract and the corner idealisation are the ones it was built on",
+      "not_claimed": [
+        "a finding that Eq. (19) fails on the authors' own library",
+        "any operational design use"
+      ]
     }
   ]
 }

@@ -1,0 +1,16 @@
+relation,eta,D_over_B,selector,k_fsm,k_equation,deviation_from_equation_pct,deviation_from_k4_pct,closer,within_10pct_screen,action,reason
+AISI RP23-01 Eq. (19),1.2,0.1,sharp-corner signature minimum,4.83458,5.07784,4.7906,20.8645,equation,True,retain_bounded_claim,mode contract and corner idealisation not reproduced
+AISI RP23-01 Eq. (19),1.2,0.25,sharp-corner signature minimum,4.86893,5.07784,4.1142,21.7232,equation,True,retain_bounded_claim,mode contract and corner idealisation not reproduced
+AISI RP23-01 Eq. (19),1.2,0.4,sharp-corner signature minimum,4.7861,5.07784,5.7454,19.6525,equation,True,retain_bounded_claim,mode contract and corner idealisation not reproduced
+AISI RP23-01 Eq. (19),2.2,0.1,sharp-corner signature minimum,5.46873,5.52955,1.0999,36.7182,equation,True,retain_bounded_claim,mode contract and corner idealisation not reproduced
+AISI RP23-01 Eq. (19),2.2,0.25,sharp-corner signature minimum,5.49384,5.52955,0.6458,37.346,equation,True,retain_bounded_claim,mode contract and corner idealisation not reproduced
+AISI RP23-01 Eq. (19),2.2,0.4,sharp-corner signature minimum,5.49885,5.52955,0.5552,37.4712,equation,True,retain_bounded_claim,mode contract and corner idealisation not reproduced
+AISI RP23-01 Eq. (19),4.47214,0.1,sharp-corner signature minimum,5.53328,5.79852,4.5743,38.332,equation,True,retain_bounded_claim,mode contract and corner idealisation not reproduced
+AISI RP23-01 Eq. (19),4.47214,0.25,sharp-corner signature minimum,5.84223,5.79852,0.7538,46.0557,equation,True,retain_bounded_claim,mode contract and corner idealisation not reproduced
+AISI RP23-01 Eq. (19),4.47214,0.4,sharp-corner signature minimum,5.86937,5.79852,1.2219,46.7343,equation,True,retain_bounded_claim,mode contract and corner idealisation not reproduced
+AISI RP23-01 Eq. (19),8.0,0.25,sharp-corner signature minimum,5.51689,5.61074,1.6727,37.9223,equation,True,retain_bounded_claim,mode contract and corner idealisation not reproduced
+AISI RP23-01 Eq. (19),8.0,0.4,sharp-corner signature minimum,5.97755,5.61074,6.5376,49.4387,equation,True,retain_bounded_claim,mode contract and corner idealisation not reproduced
+AISI RP23-01 Eq. (19),12.0,0.25,sharp-corner signature minimum,4.57837,5.32841,14.0762,14.4592,equation,False,retain_bounded_claim,mode contract and corner idealisation not reproduced
+AISI RP23-01 Eq. (19),12.0,0.4,sharp-corner signature minimum,4.97123,5.32841,6.7033,24.2808,equation,True,retain_bounded_claim,mode contract and corner idealisation not reproduced
+AISI RP23-01 Eq. (19),16.0,0.4,sharp-corner signature minimum,4.42095,5.10855,13.4598,10.5238,k4,False,retain_bounded_claim,mode contract and corner idealisation not reproduced
+AISI RP23-01 Eq. (19),20.0,0.4,sharp-corner signature minimum,4.21327,4.94488,14.7953,5.3317,k4,False,retain_bounded_claim,mode contract and corner idealisation not reproduced

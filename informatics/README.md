@@ -31,7 +31,7 @@ Submission-facing bundle for *Advanced Engineering Informatics*. The manuscript 
 
 - Native Zhang et al. CUFSM model files are **not** redistributed.
 - AISI RP23-01 PDF and CUFSM example MAT files are **not** redistributed; manifests record URLs and hashes.
-- `human_engineer_review` is **closed** (`completed_2026-10-06`); `operational_use` remains **open** because native source CUFSM models are unavailable.
+- `human_engineer_review` is an **author self-review** (2026-10-06). **No independent third-party engineering review is claimed.** `operational_use` remains **open** because both the independent source-model rerun and an independent engineering review are outstanding.
 - Public mirror: https://github.com/Johnsonlijian/bounded-relation-recovery
 - Package state: `LOCAL_ONLY / NOT_SUBMITTED`.
 

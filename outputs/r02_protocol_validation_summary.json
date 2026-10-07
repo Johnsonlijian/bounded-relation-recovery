@@ -14,5 +14,9 @@
   "positive_only_candidate_count": 22,
   "public_solver_source": "https://github.com/thinwalled/cufsm-git",
   "public_solver_license": "MIT (repository LICENSE; verify before redistribution)",
-  "evidence_boundary": "protocol stress tests and public-source provenance; not a rerun of the Zhang et al. models"
+  "evidence_boundary": "protocol stress tests and public-source provenance; not a rerun of the Zhang et al. models",
+  "clean_positive_control_rows": 1,
+  "method_control_rows_total": 16,
+  "failure_gate_pass_count_note": "16 is the row count of the control table: 15 predeclared failure or coverage cases plus 1 clean positive control",
+  "human_engineer_review": "author_self_review_completed_2026-10-06; no independent review claimed"
 }

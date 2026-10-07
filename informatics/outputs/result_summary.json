@@ -28,6 +28,8 @@
   "public_solver_transfer": "pass: 500 cells from a separately sourced MIT-licensed CUFSM example",
   "source_model_reconstruction": "pass_with_metadata_boundary: 630 rows; RMSE 0.532%; q95 1.320%; max 2.431%; E_eff=217400 MPa",
   "independent_ksce_spectrum_transfer": "pass_bounded_screen: 24 rows; RMSE 0.720%; q95 1.542%; max 1.620%; 10% predicate",
-  "human_engineer_review": "open",
-  "submission_state": "LOCAL_ONLY / NOT_SUBMITTED"
+  "human_engineer_review": "author_self_review_completed_2026-10-06; no independent review claimed",
+  "submission_state": "LOCAL_ONLY / NOT_SUBMITTED",
+  "operational_use_gate": "open: independent source-model rerun + independent human engineering review",
+  "second_object_action": "retain_bounded_claim"
 }

@@ -1,6 +1,6 @@
 # Bounded relation recovery — public reproducibility package
 
-Software and derived artefacts for the manuscript *Bounded relation recovery for legacy engineering knowledge: predicates, interval evidence, and auditable actions* (candidate submission to *Advanced Engineering Informatics*).
+Software and derived artefacts for the manuscript *Bounded relation recovery: an auditable action contract for published engineering relations* (candidate submission to *Advanced Engineering Informatics*).
 
 This repository contains the **informatics artefact only**: typed knowledge graph, action trace, schema code, transcribed public tables, derived summaries, and regeneration scripts. It does **not** include the manuscript PDF, cover letter, or third-party CUFSM model files.
 
