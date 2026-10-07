@@ -292,8 +292,8 @@ def figure_calculus(matrix: pd.DataFrame, global_scale: dict, transfer: pd.DataF
     axa.set_title("A  Groupwise intervals", loc="left", weight="bold", fontsize=8.2)
     axa.grid(axis="x", alpha=0.22, which="both")
     axa.legend(fontsize=7.0, loc="lower right", framealpha=0.95)
-    axa.text(0.02, 0.98, "shaded band: where a common\nscale would have to lie\n(it is empty)",
-             transform=axa.transAxes, fontsize=7.0, va="top", color="#7A2B33")
+    # No in-panel note: the caption already states that the two bounds are inverted and the
+    # band empty. The note used to be struck through by the global-upper dotted line.
 
     widths = [float(r["width"]) for r in groups]
     short = [group_label(r["group"]).replace("Table ", "T").replace(" / a/t ", "\n") for r in groups]
