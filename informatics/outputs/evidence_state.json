@@ -12,7 +12,7 @@
     "source_model_reconstruction_evidence": "available; 630 published cells; RMSE 0.532%; q95 1.320%; max 2.431%; metadata boundary",
     "independent_ksce_spectrum_transfer_evidence": "available; 24 published rows; nearest-spectrum screen pass; mode metadata boundary",
     "external_relation_transfer_evidence": "available; AISI RP23-01 Eq. (19) card; 7 cells; positive-bounded gate pass; source FSM not rerun",
-    "independent_engineer_blind_review": "open",
+    "independent_engineer_blind_review": "author self-review only; no independent review claimed",
     "operational_design_validation": "not_available"
   },
   "action_boundary": "allow_bounded_query only; operational use remains gated by R6",
